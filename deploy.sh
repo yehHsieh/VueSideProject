@@ -25,6 +25,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:< github使用者名稱>/< github使用者名稱>.github.io.git main
 
 # if you are deploying to https://<github使用者名稱>.github.io/<REPO檔名> (建議使用)
-git push -f https://github.com/yehHsieh/<repo名>.git main:gh-pages (需全小寫)
+git push -f git@github.com:yehHsieh/VueHw6.git main:gh-pages 
 
 cd -
