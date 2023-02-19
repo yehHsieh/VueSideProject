@@ -20,11 +20,11 @@ git checkout -B main
 git add -A
 git commit -m 'deploy'
 
-以下擇一
+#以下擇一
 # if you are deploying to https://< github使用者名稱>.github.io
 # git push -f git@github.com:< github使用者名稱>/< github使用者名稱>.github.io.git main
 
 # if you are deploying to https://<github使用者名稱>.github.io/<REPO檔名> (建議使用)
-git push -f git@github.com:yehHsieh/VueHw6.git main:gh-pages 
+git push -f https://github.com/yehHsieh/VueHw6.git main:gh-pages 
 
 cd -
