@@ -5,6 +5,9 @@
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "./variables";
+@import "./base";
+@import "./mixin";
+@import "./utilities";
 
 
 

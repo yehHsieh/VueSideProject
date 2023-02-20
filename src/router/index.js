@@ -12,9 +12,9 @@ const routes = [
         component: () => import('../views/front/HomeView.vue'),
       },
       {
-        path: 'about',
+        path: 'Custom',
         name: 'About',
-        component: () => import('../views/front/AboutView.vue'),
+        component: () => import('../views/front/CustomView.vue'),
       },
       {
         path: 'product/:id',
