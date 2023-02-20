@@ -15,9 +15,9 @@
 
     <!-- slogan -->
     <div class="bg-secondary">
-      <div class="container py-3">
+      <div class="container py-5">
         <h3 class="fw-bold">專屬你的調酒</h3>
-        <div class="text-center">
+        <div class="text-center my-3">
           <h4 class="fw-bold">會不會?</h4>
           <p>有時突然很想喝調酒，去了酒吧卻不知如何點起，<br>有時在家突然想喝點調酒，卻不想出門
           </p>
@@ -29,7 +29,7 @@
     </div>
 
     <!-- light show -->
-    <div>
+    <div class="bg-primary">
       DRINK WHEREEVER
     </div>
 
@@ -52,8 +52,8 @@
     <!--  -->
 
     <!-- news -->
-    <div class="container">
-      <h3 class="fw-bold">最新消息</h3>
+    <div class="container my-5">
+      <h2 class="fw-bold">最新消息</h2>
       <ul>
         <li class="row border-bottom pt-3 pb-2">
           <div class="col-8">跨年夜 12/31 8 PM HAPPY HOUR </div>
@@ -67,6 +67,24 @@
           <div class="col-8">10/25老闆去思考人生店休一天</div>
           <div class="col-4">2022/10/20</div>
         </li>
+      </ul>
+    </div>
+
+    <!-- light show -->
+    <div class="bg-primary">
+      DRINK WHEREEVER
+    </div>
+
+    <!-- bar info -->
+    <div class="container my-5">
+      <h2 class="fw-bold">酒吧資訊</h2>
+      <ul class="row">
+        <ul class="col-7 my-4">
+          <li class="mb-3">營業時間 : Fri - Sun   1800 PM ~ 0100 AM</li>
+          <li class="mb-3">地址 : 台南市中西區民族路二段</li>
+          <li>連絡電話 : 090023002030</li>
+        </ul>
+        <li class="col-5"><img src="../../assets/img/pexels-clem-onojeghuo-185768.jpg" alt="shop"></li>
       </ul>
     </div>
   </main>
