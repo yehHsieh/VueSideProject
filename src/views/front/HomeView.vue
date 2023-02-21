@@ -48,7 +48,66 @@
     </div>
 
     <!-- swiper -->
-    <div>swiper</div>
+    <div class="bg-secondary py-5">
+      <div class="container">
+        <div class="d-flex justify-content-center align-items-center">
+        <h2 class="fw-bold mb-3">調酒基底</h2>
+      </div>
+      <swiper :slides-per-view="3.5" :space-between="5" @swiper="onSwiper" @slideChange="onSlideChange">
+        <swiper-slide>
+          <div class="card" style="width: 16rem;">
+            <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-light text-center p-4">
+              <h5 class="card-title">白蘭地</h5>
+              <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide><div class="card" style="width: 16rem;">
+            <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-light text-center p-4">
+              <h5 class="card-title">琴酒</h5>
+              <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide><div class="card" style="width: 16rem;">
+            <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-light text-center p-4">
+              <h5 class="card-title">蘭姆酒</h5>
+              <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide><div class="card" style="width: 16rem;">
+            <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-light text-center p-4">
+              <h5 class="card-title">伏特加</h5>
+              <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+
+        <swiper-slide><div class="card" style="width: 16rem;">
+            <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
+            <div class="card-body bg-light text-center p-4">
+              <h5 class="card-title">威士忌</h5>
+              <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
+              </p>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+      </div>
+
+    </div>
     <!--  -->
 
     <!-- news -->
@@ -59,11 +118,11 @@
           <div class="col-8">跨年夜 12/31 8 PM HAPPY HOUR </div>
           <div class="col-4">2022/12/29</div>
         </li>
-         <li class="row border-bottom pt-3 pb-2">
+        <li class="row border-bottom pt-3 pb-2">
           <div class="col-8">樂團得卡就應 Live 演出 </div>
           <div class="col-4">2022/11/29</div>
         </li>
-         <li class="row border-bottom pt-3 pb-2">
+        <li class="row border-bottom pt-3 pb-2">
           <div class="col-8">10/25老闆去思考人生店休一天</div>
           <div class="col-4">2022/10/20</div>
         </li>
@@ -80,7 +139,7 @@
       <h2 class="fw-bold">酒吧資訊</h2>
       <ul class="row">
         <ul class="col-7 my-4">
-          <li class="mb-3">營業時間 : Fri - Sun   1800 PM ~ 0100 AM</li>
+          <li class="mb-3">營業時間 : Fri - Sun 1800 PM ~ 0100 AM</li>
           <li class="mb-3">地址 : 台南市中西區民族路二段</li>
           <li>連絡電話 : 090023002030</li>
         </ul>
@@ -91,9 +150,28 @@
 </template>
 
 <script>
-export default {
-  component: {
 
-  }
-}
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  setup() {
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+    return {
+      onSwiper,
+      onSlideChange,
+    };
+  },
+};
 </script>
