@@ -25,6 +25,38 @@ const routes = [
         path: 'products',
         name: 'Products',
         component: () => import('../views/front/productsView.vue'),
+        children:[
+          {
+            path: '/AllProducts',
+            name: 'AllProducts',
+            component: () => import('../views/front/categoryView.vue'),
+          },
+          {
+            path: '/brandy',
+            name: 'brandy',
+            component: () => import('../views/front/BrandyView.vue'),
+          },
+          {
+            path: '/gin',
+            name: 'gin',
+            component: () => import('../views/front/GinView.vue'),
+          },
+          {
+            path: '/rum',
+            name: 'rum',
+            component: () => import('../views/front/RumView.vue'),
+          },
+          {
+            path: '/vodka',
+            name: 'vodka',
+            component: () => import('../views/front/VodkaView.vue'),
+          },
+          {
+            path: '/wiskey',
+            name: 'wiskey',
+            component: () => import('../views/front/WiskeyView.vue'),
+          },
+        ]
       },
       {
         path: 'cart',

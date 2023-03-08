@@ -1,22 +1,17 @@
 <template>
     這是產品列表頁面
     <h2>挑一個喜歡的基底吧</h2>
-    <table class="table">
-        <tbody>
-            <tr v-for="product in products" :key="product.id">
-                <td>{{ product.title }}</td>
-                <td><img :src="product.imagesUrl" alt="" width="200"></td>
-                <td>
-                    <RouterLink :to="`/product/${product.id}`" class="btn btn-outline-primary">連結至</RouterLink>
-                    <button type="button" class="btn btn-outline-secondary" @click="addToCart(product.id)">加入購物車</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary">all</RouterLink>
+    <RouterLink :to="`/brandy`" class="btn btn-outline-primary">brandy</RouterLink>
+    <RouterLink :to="`/gin`" class="btn btn-outline-primary">gin</RouterLink>
+    <RouterLink :to="`/rum`" class="btn btn-outline-primary">rum</RouterLink>
+    <RouterLink :to="`/vodka`" class="btn btn-outline-primary">vodka</RouterLink>
+    <RouterLink :to="`/wiskey`" class="btn btn-outline-primary">wiskey</RouterLink>
+    <router-view></router-view>
 </template>
 
 <script>
-import { RouterLink } from 'vue-router';
+import { RouterView, RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
