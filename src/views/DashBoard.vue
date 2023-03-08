@@ -31,13 +31,15 @@ export default {
             this.$http.post(`${VITE_APP_URL}/v2/api/user/check`)
                 .then((res) => {
                     // this.getData();
-                    if (!res.data.success) {
+                    if (!res.data.success) 
+                    {
+                        alert('請先登入')
                         this.$router.push('/Login')
-                        console("c8 8c 8c ")
                     }
                 })
                 .catch((err) => {
                     alert("帳密錯誤")
+                    this.$router.push('/Login')
                 })
         },
     },

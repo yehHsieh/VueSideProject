@@ -1,0 +1,303 @@
+{
+    "data": {
+        "title": "側車",
+        "category": "brandy",
+        "origin_price": 300,
+        "price": 200,
+        "unit": "杯",
+        "description": "1920年代是雞尾酒的黃金年代，也是摩托車的黃金歲月，人們對於沒有馬車未退散，敢騎摩托車的勇氣十足，命名由來為當時大多軍官乘坐由司機駕駛摩托車前往酒吧。",
+        "content": "冰塊,一份白蘭地,一份橙酒,一份檸檬汁",
+        "fav": "適中",
+        "alc": "23%",
+        "steps": ["1.將四顆冰塊放入攪拌公杯中，將配方倒入冰塊上，均勻攪拌。"," 2.倒入雞尾酒杯後，即可飲用"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://static-prod.remymartin.com/app/uploads/2022/08/cocktails-t4-cognac-cocktails-remy-sidecar-2022-01.jpg"
+        ]
+    }
+}
+
+
+
+{
+    "data": {
+        "title": "寡婦之吻",
+        "category": "brandy",
+        "origin_price": 350,
+        "price": 250,
+        "unit": "杯",
+        "description": "在美國的新英格蘭地區，居民利用蘋果西打蒸餾，製成蘋果白蘭地",
+        "content": "碎冰,一份蘋果白蘭地,一份班尼迪克丁甜酒,少許安古斯特拉比特苦汁,一顆新鮮草莓,半份黃色夏翠絲甜香酒",
+        "fav": "甜",
+        "alc": "45%",
+        "steps": ["1.將一构碎冰加入雞尾酒雪克杯中，加入蘋果白蘭地、班尼狄克丁甜酒、夏翠思香甜酒和苦汁。"," 2.搖晃均勻後倒入雞尾酒杯中。","3.把新鮮草莓放入酒杯中，使其漂浮在酒上當作裝飾，輕輕吸一口，風味無限。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://cdn.diffords.com/contrib/stock-images/2023/02/63e4d322e073e.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "史汀格",
+        "category": "brandy",
+        "origin_price": 350,
+        "price": 250,
+        "unit": "杯",
+        "description": "史汀格源起於美國的禁酒令時期，是一種非常古老的雞尾酒，如今已經成為雞尾酒中的經典。原本飲用史汀格時
+        不需要加冰，但是現在飲用者都喜歡加入冰塊。這杯雞尾酒能夠炒熱宴含的氣氣• 只要一到
+        二杯史汀格，就可以讓所有賓客沉淺於歡樂的氣氛中",
+        "content": "冰塊,二份白蘭地,一份白薄荷酒",
+        "fav": "適中",
+        "alc": "45%",
+        "steps": ["1將六顆冰塊放入雞尾酒雪克杯中。"," 2.加入白蘭地和白薄荷酒。","3.搖晃均勻後倒入冰的雞尾酒杯中。","4.最後加入一小枝薄荷葉裝飾，即可歡愉享受此杯雞尾酒"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://www.cocktailmag.fr/media/k2/items/cache/00e7056ec788d5b42162a6c13dbba43c_M.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "馬丁尼",
+        "category": "gin",
+        "origin_price": 320,
+        "price": 300,
+        "unit": "杯",
+        "description": "澀馬丁尼無疑是世界上最享譽盛名的雞尾酒，每位調酒師都有自己偏好的調製方法。",
+        "content": "冰塊,一份琴酒,一份澀苦艾酒,一顆綠橄欖",
+        "fav": "不甜",
+        "alc": "40%",
+        "steps": ["1.將四顆冰塊放入公杯中。"," 2.加入琴酒和一份澀苦艾酒。","3.攪拌後倒入馬丁尼杯中。","4.以綠橄欖裝飾於小竹籤上放入杯中即完成。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://www.saq.com/media/catalog/product/d/r/dry-martini-ec-1_1610403643.png?quality=80&fit=bounds&height=&width="
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "紅衣主教",
+        "category": "gin",
+        "origin_price": 320,
+        "price": 300,
+        "unit": "杯",
+        "description": "紅衣主教相當流行，這是一種可以事先調製備用的雞尾酒美國和歐洲都可以買得到瓶裝的紅衣主教。",
+        "content": "六份琴酒,三份金巴利酒,一份澀苦艾酒,冰塊",
+        "fav": "不甜",
+        "alc": "40%",
+        "steps": ["1.在公杯中將琴酒、苦艾酒和金巴利酒與三顆冰塊混調","2.倒入雞尾酒杯中即可享用。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://www.saq.com/media/catalog/product/m/a/martini-cardinal-ec-1_1610404243.png?quality=80&fit=bounds&height=&width="
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "法式 75釐米砲",
+        "category": "gin",
+        "origin_price": 330,
+        "price": 280,
+        "unit": "杯",
+        "description": "許多雞尾酒是為了慶祝不同的慶典而創造出來的。第一次世界大戰時，法國 75 釐米加農砲是世界上最令人畏懼的野戰砲。戰後，退役軍人在巴黎的哈利紐約洒吧聚會中發明這杯雞尾酒，以紀念火力強大的 75釐米加農砲",
+        "content": "一份冰倫敦澀琴酒,二注甜樹膠糖漿,無糖冰香檳,一條打結繞圈的檸檬皮",
+        "fav": "適中",
+        "alc": "46%",
+        "steps": ["1.將一份琴酒倒入笛形香檳杯或雞尾酒杯中，加入二注甜樹膠糖漿","2.用香檳注滿酒杯。","3.以打結繞圈的檸檬皮裝飾即可享用。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://assets.epicurious.com/photos/572ba0d626808a7f44a233b1/4:6/w_772,h_1158,c_limit/French-75.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "蜜蜂之吻",
+        "category": "rum",
+        "origin_price": 300,
+        "price": 280,
+        "unit": "杯",
+        "description": "從名稱就不難猜出這杯甜美的雞尾酒配方包含了蜂蜜。蜂蜜雖然香甜，但是蜜蜂之吻卻令人不敢領教。",
+        "content": "碎冰,二份淡色蘭姆酒,一份透明蜂蜜,一條份濃奶精",
+        "fav": "甜",
+        "alc": "20%",
+        "steps": ["1.將一杯碎冰加入雞尾酒雪克杯中","2.再倒入蘭姆酒、蜂蜜和奶精。","3.用力搖晃，直到混合均勻。","4. 倒入冰過的雞尾酒杯中。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://cocktailpartyapp.com/wp-content/uploads/Bees-Kiss.png"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "絨毛鴨",
+        "category": "rum",
+        "origin_price": 320,
+        "price": 280,
+        "unit": "杯",
+        "description": "許多含奶精的雞尾酒以動物或鳥類命名。",
+        "content": "一份淡色蘭姆酒,一份蛋酒,冰檸檬汁,半份奶精,一顆新鮮草莓,一小枝薄荷",
+        "fav": "甜",
+        "alc": "18%",
+        "steps": ["1.蘭姆酒和蛋酒倒入高球杯中。","2.再將冰涼的檸檬汁加入杯中至幾乎全滿。","3.利用湯匙背面，綬缓地將奶精滴至飲料的表面。","3.以草莓和一小枝薄荷裝飾即可享用。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://cdn.diffords.com/contrib/stock-images/2016/8/30/20167e62c6d01353785f708b0feed06e216d.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "殭屍",
+        "category": "rum",
+        "origin_price": 300,
+        "price": 250,
+        "unit": "杯",
+        "description": "殭屍是返生的屍體。這杯雞尾酒被稱為殭屍，可能是因為它可以促使飲用者恢復元氣。",
+        "content": "冰塊,一份深色蘭姆酒,一份杏仁白蘭地,一份新鮮鳳梨汁,檸檬汁,柳橙汁,一片鳳梨,一顆裝飾用的櫻桃",
+        "fav": "適中",
+        "alc": "40%",
+        "steps": ["1.將四顆冰塊放入雞尾酒雪克杯中。","2.加入蘭姆酒、杏仁白蘭地、鳳梨汁。擠壓檸檬和柳橙汁。","3.搖晃均勻，倒入葡萄酒高腳杯中。","4.利用小竹籤將依片鳳梨和櫻桃串在一起，裝飾於杯緣上即可享用。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://drink-drink.ru/wp-content/uploads/2021/01/1562496880_koktejl-zombi.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "哈維撞牆",
+        "category": "vodka",
+        "origin_price": 350,
+        "price": 300,
+        "unit": "杯",
+        "description": "這杯飲料的名字非常有趣，源自於衝浪比賽中與第一名擦身而過的選手哈維。他無法接受自己的失敗，於是到曼哈頓海岸的潘丘酒吧(PanchoBar）狂飲伏特加和加利安諾茴香甜酒(Galliano）洩憤。喝完後，酪酊大醉的他用頭猛撞牆。他的朋友只好帶他回家，阻止他這種自殺性的狂飲。無論這個傳說是真或假，這杯雞尾酒的名字就是如此有趣，這也是世界各地廣受歡迎的種調酒。",
+        "content": "冰塊,二份伏特加,五份新鮮柳橙汁,一份加利安諾茴香甜酒,一片柳橙",
+        "fav": "甜",
+        "alc": "40%",
+        "steps": ["1.將四或五顆冰塊放入雞尾酒雪克杯中。","2.加入伏特加和柳橙汁。","3.搖晃均勻後倒入高球杯中。","4.加入二顆冰塊，小心地加入加利安諾茴香甜酒，使冰塊漂浮在飲料頂端。","5.以一片柳橙裝飾於杯緣再插入一根吸管即可。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://cdn.diffords.com/contrib/stock-images/2018/05/5af3043941fb2.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "莫斯科騾子",
+        "category": "vodka",
+        "origin_price": 300,
+        "price": 280,
+        "unit": "杯",
+        "description": "目前已經有市售的罐裝莫斯科騾子了，但是自己調製的飲料絕對更有味道，你可以加入個人喜好和風格。雞尾酒是一種以創意為名的遊戲。",
+        "content": "冰塊,一大份伏特加,一茶匙萊姆汁,薑汁啤酒,一片新鮮萊姆",
+        "fav": "不甜",
+        "alc": "40%",
+        "steps": ["1.將二顆冰塊放入冰過的高球杯中。","2.倒入伏特加和萊姆汁。","3.攪拌均勻後，倒入薑汁啤酒。","4.用一片萊姆裝飾即可享用。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://images.cocktailflow.com/v1/cocktail/w_300,h_540/cocktail_moscow_mule-1.png"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "黑色彈珠",
+        "category": "vodka",
+        "origin_price": 320,
+        "price": 300,
+        "unit": "杯",
+        "description": "如同雞尾酒世界中許多著名的經典，黑色彈珠也是簡單而容易調製的飲品，但味道卻非常特別。",
+        "content": "冰塊,一顆大的黑橄欖,一份品質良純的波蘭或俄羅斯伏特加,一片柳橙",
+        "fav": "不甜",
+        "alc": "40%",
+        "steps": ["1.將低球杯或葡萄酒高腳杯放滿冰塊。","2.黑橄欖放在杯內的冰塊正中央，伏特加倒在黑橄欖上。","3.以一片新鮮柳橙裝飾後即可，調法簡單的黑色彈珠風味獨具一定要親自品嚐。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://media.gq.com.tw/photos/5eb4dc2e99aaac124af13fa7/16:9/w_1920%2Cc_limit/_C2T6864.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "擄獲芳心",
+        "category": "wiskey",
+        "origin_price": 350,
+        "price": 300,
+        "unit": "杯",
+        "description": "這杯優雅且美味的雞尾酒味道強烈、清新，但是口感卻十分芳香醇厚。",
+        "content": "冰塊,三份純麥威士忌,一份咖啡香甜酒,一份杏仁白蘭地,半顆檸檬汁,少許蛋白,一片柳橙,一顆馬拉斯奇諾櫻桃",
+        "fav": "不甜",
+        "alc": "36%",
+        "steps": ["1.除了柳橙切片和櫻桃之外，將所有原料倒入一個雞尾酒雪克杯中，再加入四顆冰塊，用力搖晃。","2.過濾至一個雞尾酒杯中，以柳橙切片和櫻桃裝飾即可。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://i.pinimg.com/736x/1b/0d/64/1b0d64d389fbaf806e1b1e79565aa66b--charlie-brown-beagle.jpg"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "蘇格蘭精神",
+        "category": "wiskey",
+        "origin_price": 380,
+        "price": 320,
+        "unit": "杯",
+        "description": "這杯雞尾酒的命名與味道最相稱，因為蘇格蘭蜂蜜酒(Drambuie）是由威士忌、石楠花和蜂蜜調製成的。",
+        "content": "碎冰,二份蘇格蘭威士忌,一份蘇格蘭蜂蜜酒,半份檸檬汁",
+        "fav": "甜",
+        "alc": "41%",
+        "steps": ["1.將一杓碎冰放入果汁機或雞尾酒雪克杯中。","2.加入威士忌、蘇格蘭蜂蜜酒和檸檬汁。","3.用力攪拌所有材料，過濾至一個雞尾酒杯中即完成。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgOqyNTY5sTOP-fLjHB1OQ7TI8lLGjLa3uBA&usqp=CAU"
+        ]
+    }
+}
+
+{
+    "data": {
+        "title": "小妖精",
+        "category": "wiskey",
+        "origin_price": 360,
+        "price": 300,
+        "unit": "杯",
+        "description": "據說抓住一隻小妖精，就可以獲得一個願望，而喝下這杯美味的雞尾酒後，會讓你覺得此生已足。",
+        "content": "冰塊,一份愛爾蘭威士忌,兩份通寧水,檸檬皮",
+        "fav": "適中",
+        "alc": "40%",
+        "steps": ["1.將二顆冰塊放入高球杯。","2.加入威士忌和通寧水。","3.缓綏攪拌後，在飲料上方扭轉檸檬皮。將檸檬皮扭條置入杯內即可。"],
+        "is_enabled": 1,
+        "imageUrl": "",
+        "imagesUrl": [
+            "https://cdn.diffords.com/contrib/stock-images/2020/12/5fe1f771d3caa.jpg"
+        ]
+    }
+}
