@@ -1,36 +1,31 @@
 <template>
     <div class="container">
-        這是產品列表頁面
-        <h2>挑一個喜歡的基底吧</h2>
+        <h2 class="my-3 fw-bold">挑一個喜歡的基底吧</h2>
         <div class="row">
             <div class="col-2 text-center">
-                <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary d-block rounded-pill">all</RouterLink>
+                <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary d-block rounded-pill py-3">全部</RouterLink>
             </div>
 
             <div class="col-2 text-center">
-                <RouterLink :to="`/brandy`" class="btn btn-outline-primary d-block rounded-pill">brandy</RouterLink>
+                <RouterLink :to="`/brandy`" class="btn btn-outline-primary d-block rounded-pill py-3">白蘭地</RouterLink>
             </div>
 
             <div class="col-2 text-center">
-                <RouterLink :to="`/gin`" class="btn btn-outline-primary d-block rounded-pill">gin</RouterLink>
+                <RouterLink :to="`/gin`" class="btn btn-outline-primary d-block rounded-pill py-3">琴酒</RouterLink>
             </div>
 
             <div class="col-2 text-center">
-                <RouterLink :to="`/rum`" class="btn btn-outline-primary d-block rounded-pill">rum</RouterLink>
+                <RouterLink :to="`/rum`" class="btn btn-outline-primary d-block rounded-pill py-3">蘭姆酒</RouterLink>
             </div>
 
             <div class="col-2 text-center">
-                <RouterLink :to="`/vodka`" class="btn btn-outline-primary d-block rounded-pill">vodka</RouterLink>
+                <RouterLink :to="`/vodka`" class="btn btn-outline-primary d-block rounded-pill py-3">伏特加</RouterLink>
             </div>
 
             <div class="col-2 text-center">
-                <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill">wiskey</RouterLink>
+                <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill py-3">威士忌</RouterLink>
             </div>
         </div>
-
-
-
-
 
 
         <router-view></router-view>

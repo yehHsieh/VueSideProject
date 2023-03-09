@@ -1,10 +1,10 @@
 <template>
-    <ul class="row">
-        <li v-for="product in products" :key="product.id" class="col-12 col-md-6 col-lg-4 mb-4">
+    <ul class="row my-5">
+        <li v-for="product in products" :key="product.id" class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
             <div class="card border-0">
-                <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="300"></a>
+                <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
 
-                <div class="card-body">
+                <div class="card-body text-center">
                     <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
                     <p class="card-text me-2">$ {{ product.origin_price }}</p>
                     <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
