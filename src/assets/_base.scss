@@ -8,7 +8,7 @@ img {
     max-width: 100%;
     height: auto;
     vertical-align: middle;
-    aspect-ratio: 16/9;
+    aspect-ratio: 9/16;
     /* 額外確保圖片縮放時會有最好的效果 */
     object-fit: cover;
 }

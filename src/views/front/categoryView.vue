@@ -1,5 +1,27 @@
 <template>
-<table class="table">
+    <ul class="row">
+        <li v-for="product in products" :key="product.id" class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card border-0">
+                <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="300"></a>
+
+                <div class="card-body">
+                    <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                    <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                    <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+
+                    <p>
+                        <RouterLink :to="`/product/${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊 <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg></RouterLink>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <table class="table">
         <tbody>
             <tr v-for="product in products" :key="product.id">
                 {{ product.category }}
@@ -29,10 +51,10 @@ export default {
             // console.log(this.$route.params)
             // const { category } = this.$route.params;
             this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products/all`)
-            .then((res)=>{
-                console.log(res);
-                this.products = res.data.products;
-            })
+                .then((res) => {
+                    console.log(res);
+                    this.products = res.data.products;
+                })
         }
     },
 

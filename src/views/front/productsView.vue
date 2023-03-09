@@ -1,13 +1,40 @@
 <template>
-    這是產品列表頁面
-    <h2>挑一個喜歡的基底吧</h2>
-    <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary">all</RouterLink>
-    <RouterLink :to="`/brandy`" class="btn btn-outline-primary">brandy</RouterLink>
-    <RouterLink :to="`/gin`" class="btn btn-outline-primary">gin</RouterLink>
-    <RouterLink :to="`/rum`" class="btn btn-outline-primary">rum</RouterLink>
-    <RouterLink :to="`/vodka`" class="btn btn-outline-primary">vodka</RouterLink>
-    <RouterLink :to="`/wiskey`" class="btn btn-outline-primary">wiskey</RouterLink>
-    <router-view></router-view>
+    <div class="container">
+        這是產品列表頁面
+        <h2>挑一個喜歡的基底吧</h2>
+        <div class="row">
+            <div class="col-2 text-center">
+                <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary d-block rounded-pill">all</RouterLink>
+            </div>
+
+            <div class="col-2 text-center">
+                <RouterLink :to="`/brandy`" class="btn btn-outline-primary d-block rounded-pill">brandy</RouterLink>
+            </div>
+
+            <div class="col-2 text-center">
+                <RouterLink :to="`/gin`" class="btn btn-outline-primary d-block rounded-pill">gin</RouterLink>
+            </div>
+
+            <div class="col-2 text-center">
+                <RouterLink :to="`/rum`" class="btn btn-outline-primary d-block rounded-pill">rum</RouterLink>
+            </div>
+
+            <div class="col-2 text-center">
+                <RouterLink :to="`/vodka`" class="btn btn-outline-primary d-block rounded-pill">vodka</RouterLink>
+            </div>
+
+            <div class="col-2 text-center">
+                <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill">wiskey</RouterLink>
+            </div>
+        </div>
+
+
+
+
+
+
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -34,15 +61,15 @@ export default {
                 "qty": 1
             }
 
-            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`,{data})
-            .then((res) =>{
-                console.log(res)
-            })
+            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
+                .then((res) => {
+                    console.log(res)
+                })
         }
     },
     mounted() {
         this.getProducts()
-        
+
     }
 }
 </script>
