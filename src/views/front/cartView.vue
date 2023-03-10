@@ -1,57 +1,73 @@
 <template>
     這是購物車頁面
-    <table class="table align-middle">
-        <thead>
-            <tr>
-                <th></th>
-                <th>品名</th>
-                <th style="width: 150px">數量/單位</th>
-                <th>單價</th>
-            </tr>
-        </thead>
-        <tbody>
-            <template v-if="cart.carts">
-                <tr v-for="item in cart.carts" :key="item.id">
-                    <td>
-                        <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item)"
-                            :disabled="item.id === loadingItem">
-                            <i class="fas fa-spinner fa-pulse"></i>
-                            x
-                        </button>
-                    </td>
-                    <td>
-                        {{ item.product.title }}
-                    </td>
-                    <td>
-                        <div class="input-group input-group-sm">
-                            <select class="form-control" name="" id="" v-model="item.qty" @change="updateCartItem(item)"
+    <ul class="progresses m-0 d-flex">
+        <li class="active">商品確認</li>
+        <li>訂購人資訊</li>
+        <li>訂單完成</li>
+    </ul>
+    <div class="container my-5 p-3 bg-secondary">
+        <h2>商品確認</h2>
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>品名</th>
+                    <th style="width: 120px">數量/單位</th>
+                    <th>單價</th>
+                    <th class="text-end">金額</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template v-if="cart.carts">
+                    <tr v-for="item in cart.carts" :key="item.id">
+                        <td>
+                            <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item)"
                                 :disabled="item.id === loadingItem">
-                                <option :value="i" v-for="i in 20" :key="`${i}1223`">{{ i }}</option>
-                            </select>
-                        </div>
-                    </td>
-                    <td class="text-end">
-                        <small class="text-success">價格：</small>
-                        {{ item.total }}
+                                <i class="fas fa-spinner fa-pulse"></i>
+                                x
+                            </button>
+                        </td>
+                        <td>
+                            {{ item.product.title }}
+                        </td>
+                        <td>
+                            <div class="input-group input-group-sm">
+                                <select class="form-control" name="" id="" v-model="item.qty" @change="updateCartItem(item)"
+                                    :disabled="item.id === loadingItem">
+                                    <option :value="i" v-for="i in 20" :key="`${i}1223`">{{ i }}份</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>{{ item.product.price }}</td>
+                        <td class="text-end">
+                            <small class="text-success">價格：</small>
+                            {{ item.total }}
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-end">總計</td>
+                    <td class="text-end">{{ cart.total }}</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-end text-success">折扣價</td>
+                    <td class="text-end text-success">{{ cart.final_total }}</td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-end">
+                        <RouterLink :to="`/AllProducts`" class="btn btn-outline-dark me-3 rounded-pill py-1 px-4 text-center">再逛逛</RouterLink>
+                        <RouterLink :to="`/info`" class="btn btn-primary rounded-pill py-1 px-4 text-center">去結帳</RouterLink>
                     </td>
                 </tr>
-            </template>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-end">總計</td>
-                <td class="text-end">{{ cart.total }}</td>
-            </tr>
-            <tr>
-                <td colspan="3" class="text-end text-success">折扣價</td>
-                <td class="text-end text-success">{{ cart.final_total }}</td>
-            </tr>
-        </tfoot>
-    </table>
+            </tfoot>
+        </table>
+    </div>
 </template>
 
 <script>
-
+import { RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {

@@ -64,6 +64,11 @@ const routes = [
         component: () => import('../views/front/cartView.vue'),
       },
       {
+        path: 'info',
+        name: 'info',
+        component: () => import('../views/front/InfoView.vue'),
+      },
+      {
         path: 'Login',
         name: 'Login',
         component: () => import('../views/front/LoginView.vue'),

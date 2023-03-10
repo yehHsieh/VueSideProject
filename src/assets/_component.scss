@@ -20,3 +20,51 @@
     }
 }
 
+.progresses {
+    counter-reset: step;
+}
+
+.progresses li {
+    list-style-type: none;
+    // float: left;
+    width: 33.33%;
+    position: relative;
+    text-align: center;
+    z-index: 0;
+    &::before {
+        content: counter(step);
+        counter-increment: step;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        border: 1px solid #ddd;
+        display: block;
+        text-align: center;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        background: #ddd;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+    }
+
+    &:first-child::after {
+        content: none;
+    }
+}
+
+.progresses li.active::before{
+    border-color:   $primary;
+    background: $primary;
+}
+.progresses li.active + li::after{
+    background: $primary;
+}
