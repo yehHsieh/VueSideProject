@@ -1,5 +1,6 @@
 <template>
-    這是購物車頁面
+   
+        這是購物車頁面
     <ul class="progresses m-0 d-flex">
         <li class="active">商品確認</li>
         <li>訂購人資訊</li>

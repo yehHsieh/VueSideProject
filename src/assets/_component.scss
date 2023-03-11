@@ -31,6 +31,7 @@
     position: relative;
     text-align: center;
     z-index: 0;
+
     &::before {
         content: counter(step);
         counter-increment: step;
@@ -61,10 +62,28 @@
     }
 }
 
-.progresses li.active::before{
-    border-color:   $primary;
+.progresses li.active::before {
+    border-color: $primary;
     background: $primary;
 }
-.progresses li.active + li::after{
+
+.progresses li.active+li::after {
     background: $primary;
+}
+
+
+.bg-opacity {
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7); // 背景色設置為半透明白色
+        z-index: -1;
+    }
 }
