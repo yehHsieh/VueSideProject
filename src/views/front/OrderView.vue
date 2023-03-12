@@ -56,16 +56,6 @@ export default {
     },
     methods: {
         ...mapActions(cartStore, ['getCart', 'addToOrder']),
-        // getOrder()
-        // {
-        //     this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/orders`)
-        //         .then(res => {
-        //             console.log(res)
-        //         })
-        //         .catch(err => {
-        //             console.log(err)
-        //         })
-        // }
     },
     mounted() {
         this.getCart();

@@ -44,7 +44,7 @@
                                 </select>
                             </div>
                         </td>
-                        
+
                         <td v-if="allDiscount"><del>{{ item.product.origin_price }}</del> {{ item.product.price }}</td>
                         <td v-else>{{ item.product.origin_price }}</td>
 
@@ -54,7 +54,7 @@
                         </td>
                         <td v-else class="text-end">
                             <small class="text-success">價格：</small>
-                            {{ item.product.origin_price * item.qty}}
+                            {{ item.product.origin_price * item.qty }}
                         </td>
                     </tr>
                 </template>
@@ -63,7 +63,7 @@
 
                 <tr>
                     <td colspan="4" class="text-end">折扣金額:</td>
-                    <td class="text-end">{{ cart.total - cart.final_total}}</td>
+                    <td class="text-end">{{ cart.total - cart.final_total }}</td>
                 </tr>
                 <tr v-if="couponOn || allDiscount">
                     <td colspan="4" class="text-end text-success">最後金額:</td>
@@ -89,6 +89,7 @@
 <script>
 import { RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
+import Swal from 'sweetalert2';
 
 export default {
 
@@ -137,31 +138,50 @@ export default {
                 })
         },
         deleteItem(item) {
-            this.loadingItem = item.id;
-            this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
-                .then(res => {
-                    console.log('刪除購物車:', res.data);
-                    this.getCarts();
-                    this.loadingItem = "";
-                })
+            Swal.fire({
+                reverseButtons: true,
+                title: '確定刪除?',
+                showCancelButton: true,
+                cancelButtonText: '取消',
+                confirmButtonText: '確定',
+                confirmButtonColor: 'rgba(255, 159, 0, 1)'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.loadingItem = item.id;
+                    this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
+                        .then(res => {
+                            console.log('刪除購物車:', res.data);
+                            this.getCarts();
+                            this.loadingItem = "";
+                        })
+                    Swal.fire('刪除成功!', '', 'success')
+                }
+            })
+
         },
         getCoupon() {
-            if(this.couponCode === "drunk"){
+            if (this.couponCode === "drunk") {
                 this.allDiscount = true;
             }
-            else{
+            else {
                 const data = { "code": this.couponCode }
-            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
-                .then(res => {
-                    console.log(res)
-                    couponOn = true,
-                    this.getCarts();
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        }
+                this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
+                    .then(res => {
+                        console.log(res)
+                        this.couponOn = true,
+                        this.getCarts();
+                        Swal.fire({
+                        icon: 'success',
+                        title: res.data.message,
+                        showConfirmButton: false,
+                        timer: 1700
+                    })
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
             }
+        }
     },
 
 

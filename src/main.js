@@ -42,12 +42,18 @@ configure({
 })
 setLocale('zh_TW')
 
+
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 app.use(VueAxios, axios)
 app.use(LoadingPlugin);
+
 
 app.component('VForm', Form)
 app.component('VField', Field)

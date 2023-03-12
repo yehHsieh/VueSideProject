@@ -96,8 +96,9 @@
 <script>
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
-import { mapState , mapActions } from "pinia";
+import { mapState, mapActions } from "pinia";
 import cartStore from '../../stores/cart'
+import Swal from 'sweetalert2';
 
 export default {
     data() {
@@ -120,11 +121,11 @@ export default {
                 })
         },
         // ...mapActions(cartStore ,["addToCart","plusProduct","minusProduct"]),
-        plusProduct(){
+        plusProduct() {
             this.num++;
         },
-        minusProduct(){
-            if(this.num > 0){
+        minusProduct() {
+            if (this.num > 0) {
                 this.num--;
             }
         },
@@ -138,6 +139,12 @@ export default {
                 .then((res) => {
                     console.log(res)
                     this.num = 0;
+                    Swal.fire({
+                        icon: 'success',
+                        title: res.data.message,
+                        showConfirmButton: false,
+                        timer: 1700
+                    })
                 })
         }
     },

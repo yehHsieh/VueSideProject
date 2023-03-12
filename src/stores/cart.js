@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from 'axios'
 import router from "@/router";
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
@@ -36,7 +36,7 @@ const cartStore = defineStore("cart", {
                     alert(err.response.data.message);
                 });
         },
-        submitInf(name){
+        submitInf(name) {
             this.data.user.name = name;
             router.push("/order")
         },
@@ -61,65 +61,26 @@ const cartStore = defineStore("cart", {
                     this.getCart();
                 })
         },
-        updateCart(cart) {
-            this.loadingItem = cart.id;
-            const data = {
-                "product_id": cart.product.id,
-                "qty": cart.num
-            }
-            axios.put(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart/${cart.id}`, { data })
-                .then(res => {
-                    // Swal.fire({
-                    //     icon: 'success',
-                    //     title: res.data.message,
-                    //     showConfirmButton: false,
-                    //     timer: 1500
-                    // })
-                    this.getCart();
-                    this.loadingItem = "";
-                })
-                .catch(err => {
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: err.response.data.message,
-                    //     showConfirmButton: false,
-                    //     timer: 1500
-                    // })
-                })
-        },
-        deleteCartItem(cart) {
-            this.loadingItem = cart.id;
-            axios.delete(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart/${cart.id}`)
-                .then(res => {
-
-                    this.getCart();
-                    this.loadingItem = "";
-                    // Swal.fire({
-                    //     icon: 'success',
-                    //     title: res.data.message,
-                    //     showConfirmButton: false,
-                    //     timer: 1500
-                    // })
-                })
-                .catch(err => {
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: err.response.data.message,
-                    //     showConfirmButton: false,
-                    //     timer: 1500
-                    // })
-                })
-        },
         addToOrder() {
-            const data =this.data
+            const data = this.data
             axios.post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/order`, { data })
                 .then(res => {
-                    router.push('/')
+                    return new Promise(resolve => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: res.data.message,
+                            showConfirmButton: false,
+                            timer: 1700
+                        }).then(() => resolve());
+                    });
                 })
-        },
+                .then(() => {
+                    router.push('/');
+                });
     },
-getters:{
-    
+},
+    getters: {
+
 }
 
 })
