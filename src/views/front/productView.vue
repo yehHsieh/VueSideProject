@@ -96,6 +96,8 @@
 <script>
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
+import { mapState , mapActions } from "pinia";
+import cartStore from '../../stores/cart'
 
 export default {
     data() {
@@ -104,7 +106,9 @@ export default {
             num: 1,
         }
     },
-
+    computed: {
+        ...mapState(cartStore, ['num', 'carts']),
+    },
     methods: {
         getProduct() {
             console.log(this.$route.params)
@@ -115,6 +119,7 @@ export default {
                     this.product = res.data.product;
                 })
         },
+        // ...mapActions(cartStore ,["addToCart","plusProduct","minusProduct"]),
         plusProduct(){
             this.num++;
         },

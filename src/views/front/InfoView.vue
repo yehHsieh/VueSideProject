@@ -12,13 +12,13 @@
                 <div class="col-6">
                     <div class="bg-opacity">
                         <div class="my-5 py-5 row justify-content-center" style="position: relative; z-index: 2;">
-                            <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="addToOrder">
+                            <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="submitInf(data.user.name)">
                                 <h2>訂購人資訊</h2>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
                                     <v-field id="email" name="email" type="email" class="form-control"
                                         rules="required|email" :class="{ 'is-invalid': errors['email'] }"
-                                        placeholder="請輸入 Email" v-model.trim="user.email"></v-field>
+                                        placeholder="請輸入 Email" v-model.trim="data.user.email"></v-field>
                                     <error-message name="email" class="invalid-feedback"></error-message>
                                 </div>
 
@@ -26,7 +26,7 @@
                                     <label for="name" class="form-label">收件人姓名</label>
                                     <v-field id="name" name="姓名" type="text" class="form-control"
                                         :class="{ 'is-invalid': errors['姓名'] }" placeholder="請輸入姓名" rules="required"
-                                        v-model.trim="user.name"></v-field>
+                                        v-model.trim="data.user.name"></v-field>
                                     <error-message name="姓名" class="invalid-feedback"></error-message>
                                 </div>
 
@@ -34,7 +34,7 @@
                                     <label for="tel" class="form-label">收件人電話</label>
                                     <v-field id="tel" name="電話" type="text" class="form-control"
                                         :class="{ 'is-invalid': errors['電話'] }" placeholder="請輸入電話"
-                                        rules="required|numeric|min:8|digits:8" v-model.trim="user.tel"></v-field>
+                                        rules="required|numeric|min:8|digits:8" v-model.trim="data.user.tel"></v-field>
                                     <error-message name="電話" class="invalid-feedback"></error-message>
                                 </div>
 
@@ -42,21 +42,26 @@
                                     <label for="address" class="form-label">收件人地址</label>
                                     <v-field id="address" name="地址" type="text" class="form-control"
                                         :class="{ 'is-invalid': errors['地址'] }" placeholder="請輸入地址" rules="required"
-                                        v-model.trim="user.address"></v-field>
+                                        v-model.trim="data.user.address"></v-field>
                                     <error-message name="地址" class="invalid-feedback"></error-message>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="message" class="form-label">備註:</label>
                                     <textarea id="message" class="form-control" cols="30" rows="10"
-                                        v-model.trim="user.message"></textarea>
+                                        v-model.trim="data.message"></textarea>
                                 </div>
                                 <div class="text-end">
                                     <RouterLink :to="`/cart`"
                                         class="btn btn-outline-dark me-3 rounded-pill py-1 px-4 text-center">上一步
                                     </RouterLink>
+                                    <!-- <button type="submit"
+                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">送出訂單</button> -->
+                                    <!-- <RouterLink :to="`/order`"
+                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">確認
+                                    </RouterLink> -->
                                     <button type="submit"
-                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">送出訂單</button>
+                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">確認</button>
                                 </div>
                             </v-form>
                         </div>
@@ -65,11 +70,12 @@
             </div>
         </div>
     </div>
-    {{ user.name }}
 </template>
 
 <script>
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
+import { mapActions, mapState } from "pinia";
+import cartStore from '../../stores/cart'
 
 export default {
     data() {
@@ -83,7 +89,11 @@ export default {
             "message": "",
         }
     },
+    computed: {
+        ...mapState(cartStore, ['data']),
+    },
     methods: {
+        ...mapActions(cartStore,['submitInf']),
         addToOrder() {
             const data = {
                 user: {
@@ -94,23 +104,13 @@ export default {
                 },
                 "message": this.user.message,
             }
-            this.$http.post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/order`,{data})
-            .then(res =>{
-                this.$router.push('/order')
-            })
+            this.$http.post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/order`, { data })
+                .then(res => {
+                    this.$router.push('/order')
+                })
         },
-        getOrder(){
-            this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/orders`)
-            .then(res =>{
-                console.log(res)
-            })
-            .catch(err =>{
-                console.log(err)
-            })
-        }
+
+
     },
-    mounted() {
-        this.getOrder();
-    }
 }
 </script>

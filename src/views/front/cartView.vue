@@ -1,13 +1,18 @@
 <template>
-   
-        這是購物車頁面
+    這是購物車頁面
     <ul class="progresses m-0 d-flex">
         <li class="active">商品確認</li>
         <li>訂購人資訊</li>
         <li>訂單完成</li>
     </ul>
     <div class="container my-5 p-3 bg-secondary">
-        <h2>商品確認</h2>
+        <div class="d-flex justify-content-between">
+            <h2>商品確認</h2>
+            <div class="d-flex justify-content-between">
+                <input type="text" class="me-3 rounded-pill" v-model.trim="couponCode" placeholder="請輸入優惠碼">
+                <button class="btn btn-outline-primary rounded-pill py-1 px-4 text-center" @click="getCoupon">驗證優惠碼</button>
+            </div>
+        </div>
         <table class="table align-middle">
             <thead>
                 <tr>
@@ -39,27 +44,41 @@
                                 </select>
                             </div>
                         </td>
-                        <td>{{ item.product.price }}</td>
-                        <td class="text-end">
+                        
+                        <td v-if="allDiscount"><del>{{ item.product.origin_price }}</del> {{ item.product.price }}</td>
+                        <td v-else>{{ item.product.origin_price }}</td>
+
+                        <td v-if="allDiscount" class="text-end">
                             <small class="text-success">價格：</small>
                             {{ item.total }}
+                        </td>
+                        <td v-else class="text-end">
+                            <small class="text-success">價格：</small>
+                            {{ item.product.origin_price * item.qty}}
                         </td>
                     </tr>
                 </template>
             </tbody>
             <tfoot>
+
                 <tr>
-                    <td colspan="4" class="text-end">總計</td>
-                    <td class="text-end">{{ cart.total }}</td>
+                    <td colspan="4" class="text-end">折扣金額:</td>
+                    <td class="text-end">{{ cart.total - cart.final_total}}</td>
                 </tr>
-                <tr>
-                    <td colspan="4" class="text-end text-success">折扣價</td>
+                <tr v-if="couponOn || allDiscount">
+                    <td colspan="4" class="text-end text-success">最後金額:</td>
+                    <td class="text-end text-success">{{ cart.final_total }}</td>
+                </tr>
+                <tr v-else>
+                    <td colspan="4" class="text-end text-success">最後金額:</td>
                     <td class="text-end text-success">{{ cart.final_total }}</td>
                 </tr>
                 <tr>
                     <td colspan="5" class="text-end">
-                        <RouterLink :to="`/AllProducts`" class="btn btn-outline-dark me-3 rounded-pill py-1 px-4 text-center">再逛逛</RouterLink>
-                        <RouterLink :to="`/info`" class="btn btn-primary rounded-pill py-1 px-4 text-center">去結帳</RouterLink>
+                        <RouterLink :to="`/AllProducts`"
+                            class="btn btn-outline-dark me-3 rounded-pill py-1 px-4 text-center">再逛逛</RouterLink>
+                        <RouterLink :to="`/info`" class="btn btn-primary rounded-pill py-1 px-4 text-center">去結帳
+                        </RouterLink>
                     </td>
                 </tr>
             </tfoot>
@@ -80,6 +99,9 @@ export default {
             cart: {},
             loadingItem: '',
             user: {},
+            couponCode: '',
+            allDiscount: false,
+            couponOn: false,
         }
     },
 
@@ -122,7 +144,24 @@ export default {
                     this.getCarts();
                     this.loadingItem = "";
                 })
+        },
+        getCoupon() {
+            if(this.couponCode === "drunk"){
+                this.allDiscount = true;
+            }
+            else{
+                const data = { "code": this.couponCode }
+            this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
+                .then(res => {
+                    console.log(res)
+                    couponOn = true,
+                    this.getCarts();
+                })
+                .catch(err => {
+                    console.log(err)
+                })
         }
+            }
     },
 
 
