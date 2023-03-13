@@ -1,4 +1,5 @@
 <template>
+    <Loading :active="isLoading" :z-index="1060"></Loading>
     這是購物車頁面
     <ul class="progresses m-0 d-flex">
         <li class="active">商品確認</li>
@@ -103,17 +104,20 @@ export default {
             couponCode: '',
             allDiscount: false,
             couponOn: false,
+            isLoading: false,
         }
     },
 
     methods: {
         getProducts(id) {
             this.loadingItem = id;
+            this.isLoading = true;
             this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products/all`)
                 .then(res => {
                     console.log('產品列表:', res.data.products);
                     this.products = res.data.products;
                     this.loadingItem = "";
+                    this.isLoading = false;
                 })
         },
         getCarts() {
@@ -169,13 +173,13 @@ export default {
                     .then(res => {
                         console.log(res)
                         this.couponOn = true,
-                        this.getCarts();
+                            this.getCarts();
                         Swal.fire({
-                        icon: 'success',
-                        title: res.data.message,
-                        showConfirmButton: false,
-                        timer: 1700
-                    })
+                            icon: 'success',
+                            title: res.data.message,
+                            showConfirmButton: false,
+                            timer: 1700
+                        })
                     })
                     .catch(err => {
                         console.log(err)

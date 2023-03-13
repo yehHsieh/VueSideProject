@@ -26,9 +26,9 @@
                 <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill py-3">威士忌</RouterLink>
             </div>
         </div>
-
-
         <router-view></router-view>
+    
+
     </div>
 </template>
 
@@ -39,15 +39,16 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 export default {
     data() {
         return {
-            products: []
+            products: [],
         }
     },
+    
     methods: {
-        getProducts() {
-            this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products/all`)
+        getProducts(page = 1) {
+            this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products?page=${page}`)
                 .then((res) => {
                     this.products = res.data.products;
-                    console.log(this.products);
+                    this.pagination = res.data.pagination;
                 })
         },
         addToCart(id) {
@@ -64,7 +65,7 @@ export default {
     },
     mounted() {
         this.getProducts()
-
+        this.$router.push('/AllProducts')
     }
 }
 </script>
