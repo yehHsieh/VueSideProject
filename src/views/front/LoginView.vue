@@ -1,3 +1,4 @@
+
 <template>
     <div class="container">
         <div class="row justify-content-center text-center">
@@ -23,6 +24,7 @@
             </div>
         </div>
     </div>
+    <!-- <vue-toastr ref="toastr"></vue-toastr> -->
 </template>
 
 <script>
@@ -43,17 +45,18 @@ export default {
                 username,
                 password
             };
-            this.$http.post(`${VITE_APP_URL}/v2/admin/signin`, this.user)
+            this.$http.post(`${VITE_APP_URL}v2/admin/signin`, this.user)
                 .then((res) => {
                     const { token, expired } = res.data;
                     document.cookie = `hexSchool = ${token};
                     expires = ${expired}`
                     this.$router.push('Admin/AdminProducts')
-                   
+                    // this.$refs.toastr.s("XXXXXX");
                 })
                 .catch((err) => {
                     console.log(err)
-                   
+                    alert("密碼錯誤")
+                    //    this.$refs.toastr.s("XXXXXX");
                 });
         },
     },
