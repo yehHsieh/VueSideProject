@@ -25,8 +25,8 @@
                 </tr>
             </thead>
             <tbody>
-                <template v-if="cart.carts">
-                    <tr v-for="item in cart.carts" :key="item.id">
+                <template v-if="carts">
+                    <tr v-for="item in carts" :key="item.id">
                         <td>
                             <button type="button" class="btn btn-outline-danger btn-sm" @click="deleteItem(item)"
                                 :disabled="item.id === loadingItem">
@@ -62,17 +62,25 @@
             </tbody>
             <tfoot>
 
-                <tr>
+                <tr v-if="couponOn">
                     <td colspan="4" class="text-end">折扣金額:</td>
-                    <td class="text-end">{{ cart.total - cart.final_total }}</td>
+                    <td class="text-end">{{ total - final_total }}</td>
                 </tr>
+                <tr v-if="allDiscount">
+                    <td colspan="4" class="text-end">折扣金額:</td>
+                    <td class="text-end">{{ originPrice - total }}</td>
+                </tr>
+                <tr v-else>
+                </tr>
+
+
                 <tr v-if="couponOn || allDiscount">
                     <td colspan="4" class="text-end text-success">最後金額:</td>
-                    <td class="text-end text-success">{{ cart.final_total }}</td>
+                    <td class="text-end text-success">{{ final_total }}</td>
                 </tr>
                 <tr v-else>
                     <td colspan="4" class="text-end text-success">最後金額:</td>
-                    <td class="text-end text-success">{{ cart.final_total }}</td>
+                    <td class="text-end text-success">{{originPrice }}</td>
                 </tr>
                 <tr>
                     <td colspan="5" class="text-end">
@@ -85,12 +93,15 @@
             </tfoot>
         </table>
     </div>
+    {{ originPrice }}
 </template>
 
 <script>
 import { RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import Swal from 'sweetalert2';
+import { mapState, mapActions } from "pinia";
+import cartStore from '../../stores/cart';
 
 export default {
 
@@ -107,8 +118,11 @@ export default {
             isLoading: false,
         }
     },
-
+    computed: {
+        ...mapState(cartStore, ['num', 'carts','total','final_total','originPrice']),
+    },
     methods: {
+        ...mapActions(cartStore,['getCart','deleteItem']),
         getProducts(id) {
             this.loadingItem = id;
             this.isLoading = true;
@@ -120,13 +134,7 @@ export default {
                     this.isLoading = false;
                 })
         },
-        getCarts() {
-            this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`)
-                .then(res => {
-                    console.log('購物車:', res.data);
-                    this.cart = res.data.data;
-                })
-        },
+        
         updateCartItem(item) {//購物車id和產品id
             const data = {
                 product_id: item.product.id,
@@ -137,43 +145,22 @@ export default {
             this.$http.put(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`, { data })
                 .then(res => {
                     console.log('更新購物車:', res.data);
-                    this.getCarts();
+                    this.getCart();
                     this.loadingItem = "";
                 })
         },
-        deleteItem(item) {
-            Swal.fire({
-                reverseButtons: true,
-                title: '確定刪除?',
-                showCancelButton: true,
-                cancelButtonText: '取消',
-                confirmButtonText: '確定',
-                confirmButtonColor: 'rgba(255, 159, 0, 1)'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    this.loadingItem = item.id;
-                    this.$http.delete(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart/${item.id}`)
-                        .then(res => {
-                            console.log('刪除購物車:', res.data);
-                            this.getCarts();
-                            this.loadingItem = "";
-                        })
-                    Swal.fire('刪除成功!', '', 'success')
-                }
-            })
-
-        },
+        
         getCoupon() {
             if (this.couponCode === "drunk") {
                 this.allDiscount = true;
             }
             else {
                 const data = { "code": this.couponCode }
-                this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/coupon`, { data })
+                this.$http.post(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/coupon`, { data })
                     .then(res => {
                         console.log(res)
                         this.couponOn = true,
-                            this.getCarts();
+                            this.getCart();
                         Swal.fire({
                             icon: 'success',
                             title: res.data.message,
@@ -191,7 +178,7 @@ export default {
 
     mounted() {
         this.getProducts();
-        this.getCarts();
+        this.getCart();
     }
 
 }

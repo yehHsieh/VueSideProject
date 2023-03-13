@@ -120,7 +120,7 @@ export default {
                     this.product = res.data.product;
                 })
         },
-        // ...mapActions(cartStore ,["addToCart","plusProduct","minusProduct"]),
+        ...mapActions(cartStore ,["getCart"]),
         plusProduct() {
             this.num++;
         },
@@ -139,6 +139,7 @@ export default {
                 .then((res) => {
                     console.log(res)
                     this.num = 0;
+                    this.getCart();
                     Swal.fire({
                         icon: 'success',
                         title: res.data.message,
@@ -146,10 +147,33 @@ export default {
                         timer: 1700
                     })
                 })
-        }
+        },
+        deleteItem(item) {
+            Swal.fire({
+                reverseButtons: true,
+                title: '確定刪除?',
+                showCancelButton: true,
+                cancelButtonText: '取消',
+                confirmButtonText: '確定',
+                confirmButtonColor: 'rgba(255, 159, 0, 1)'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.loadingItem = item.id;
+                    this.$http.delete(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/cart/${item.id}`)
+                        .then(res => {
+                            console.log('刪除購物車:', res.data);
+                            this.getCarts();
+                            this.loadingItem = "";
+                        })
+                    Swal.fire('刪除成功!', '', 'success')
+                }
+            })
+
+        },
     },
 
     mounted() {
+
         this.getProduct();
         this.num
     }
