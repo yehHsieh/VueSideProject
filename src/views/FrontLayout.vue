@@ -32,7 +32,7 @@
                     </li>
 
                     <li class="nav-item  border-base py-lg-2">
-                        <router-link to="/Custom" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">關於
+                        <router-link to="/Custom" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">我的酒庫
                         </router-link>
                     </li>
                     <li class="nav-item  border-base py-lg-2">
