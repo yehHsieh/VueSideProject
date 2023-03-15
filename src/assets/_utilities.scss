@@ -82,3 +82,8 @@
     box-shadow: -5px 6px #000;
 }
 
+.btn-outline-hover{
+    &:hover{
+        background-color: $secondary;
+    }
+}

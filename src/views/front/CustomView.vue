@@ -1,12 +1,22 @@
 <template>
   <Loading :active="isLoading" :z-index="1060"></Loading>
   <div class="container">
-    <h2>挑出自己偏好的調酒吧</h2>
+    <div class="d-flex justify-content-between">
+      <h2>挑出自己偏好的調酒吧</h2>
+      <RouterLink to="/game">
+        <p class="d-inline">今日調酒</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                </svg>
+      </RouterLink>
+    </div>
     <h3>我的收藏</h3>
     <h3>步驟一: 選風味</h3>
     <ul class="row">
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
-          @click.prevent="getFavProducts('甜')">甜</a></li>
+          @click.prevent="getFavProducts('甜')" v-bind:class="{ active: isActive }">甜</a></li>
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
           @click.prevent="getFavProducts('適中')">適中</a></li>
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
@@ -14,15 +24,18 @@
     </ul>
     <h3>步驟二: 選酒精度數</h3>
     <ul class="row">
-      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3">&lt 10度</a></li>
-      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3">10度~20度</a></li>
-      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3" @click.prevent="getAlcProducts(25)">&gt 20度</a></li>
+      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
+          @click.prevent="getAlcProducts('20')">&lt 20度</a></li>
+      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
+          @click.prevent="getAlcProducts('30')">20度~40度</a></li>
+      <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
+          @click.prevent="getAlcProducts('40')">&gt 40度</a></li>
     </ul>
 
 
 
     <ul class="row my-5" v-if="products.length > 0">
-      <li v-if="finalProducts.length <= 0" v-for="product in tempProducts" :key="product.id"
+      <li v-if="finalProducts.length == 0 && showNum" v-for="product in tempProducts" :key="product.id"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
         <div class="card border-0">
           <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
@@ -45,9 +58,9 @@
         </div>
       </li>
 
-      <li v-else v-for="product in finalProducts" :key="`${product.id}1`"
+      <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-        <div class="card border-0">
+        <div class="card border-0" v-if="finalProducts.length > 0">
           <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
 
           <div class="card-body text-center">
@@ -67,14 +80,16 @@
           </div>
         </div>
       </li>
+      <li v-if="!showNum">無符合條件商品</li>
     </ul>
-
     <p v-else>尚未選擇喜好</p>
   </div>
-  {{ finalProducts }}
 </template>
 
 <script >
+import Swal from 'sweetalert2'
+import { RouterLink } from 'vue-router';
+
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
@@ -83,16 +98,21 @@ export default {
       products: {},
       isLoading: false,
       tempProducts: [],
-      finalProducts:[],
+      finalProducts: [],
       tempFav: '',
-      tempAlc: 0
+      tempAlc: 0,
+      showNum: true,
+      isActive: false
     }
   },
   methods: {
     getFavProducts(fav) {
+      this.showNum = true
+      this.finalProducts = []
       this.isLoading = true;
       this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
         .then((res) => {
+          this.isActive = true
           this.products = res.data.products;
           this.tempProducts = []
           this.tempFav = fav
@@ -102,6 +122,7 @@ export default {
             }
             if (this.tempFav == "適中" && i.fav == "適中") {
               this.tempProducts.push(i);
+
             }
             if (this.tempFav == "不甜" && i.fav == "不甜") {
               this.tempProducts.push(i);
@@ -115,9 +136,26 @@ export default {
       this.isLoading = true;
       this.tempAlc = alc
       this.finalProducts = []
+      if (this.tempProducts.length == 0) {
+        Swal.fire({
+          icon: 'error',
+          title: '請先選擇風味',
+        })
+      }
       this.tempProducts.forEach(i => {
-        if (this.tempAlc > 20 && i.alc > 20) {
+        if (this.tempAlc == '20' && i.alc < 20) {
           this.finalProducts.push(i);
+
+        }
+        if (this.tempAlc == '30' && i.alc >= 20 && i.alc < 40) {
+          this.finalProducts.push(i);
+
+        }
+        if (this.tempAlc == '40' && i.alc >= 40) {
+          this.finalProducts.push(i);
+        }
+        if (this.finalProducts.length == 0) {
+          this.showNum = false
         }
       })
       this.isLoading = false;
@@ -126,8 +164,8 @@ export default {
 
   },
 
-  mounted() {
-    
+  created() {
+
   }
 }
 </script>
