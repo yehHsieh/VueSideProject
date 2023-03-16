@@ -87,3 +87,50 @@
         z-index: -1;
     }
 }
+
+.glass {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0% 0% 15% 15%;
+    border: 3px solid;
+    border-top: 0;
+    border-bottom: 20px solid;
+    border-color: $dark;
+    overflow: hidden;
+}
+
+.brandy {
+    right: 0;
+    bottom: 0%;
+    left: 0;
+    background: linear-gradient(to bottom, orange, orangered);
+    opacity: 0.7;
+}
+.gin {
+    right: 0;
+    bottom: 0%;
+    left: 0;
+    background: linear-gradient(to bottom, rgb(150, 230, 227), rgba(87, 231, 227, 1));
+    opacity: 0.7;
+}
+.rum {
+    right: 0;
+    bottom: 0%;
+    left: 0;
+    background: linear-gradient(to bottom, rgb(170, 1, 7), rgba(104, 0, 3, 1));
+    opacity: 0.7;
+}
+.vodka {
+    right: 0;
+    bottom: 0%;
+    left: 0;
+    background: linear-gradient(to bottom, rgb(212, 233, 231), rgb(165, 231, 225));
+    opacity: 0.7;
+}
+.wiskey {
+    right: 0;
+    bottom: 0%;
+    left: 0;
+    background: linear-gradient(to bottom, rgb(231, 144, 50), rgb(165, 89, 7));
+    opacity: 0.7;
+}

@@ -13,31 +13,42 @@
             </RouterLink>
         </div>
         <h3>步驟一: 選基底</h3>
-        <ul class="row offset-1">
-            <li class="col-2 text-center"><a href="" class="d-block py-3 btn-outline-hover" @click.prevent="getFavProducts('甜')"
-                    v-bind:class="{ active: isActive }" style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
+        <ul class="row offset-2">
+            <li class="col-2 text-center"><a href="" class="d-block py-3 btn-outline-hover"
+                    @click.prevent="getTypeProducts('brandy')" v-bind:class="{ active: isActive }"
+                    style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover" @click.prevent="getFavProducts('甜')"
-                    v-bind:class="{ active: isActive }" style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
+            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                    @click.prevent="getTypeProducts('gin')" v-bind:class="{ active: isActive }"
+                    style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover" @click.prevent="getFavProducts('甜')"
-                    v-bind:class="{ active: isActive }" style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
+            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                    @click.prevent="getTypeProducts('rum')" v-bind:class="{ active: isActive }"
+                    style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover" @click.prevent="getFavProducts('甜')"
-                    v-bind:class="{ active: isActive }" style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
+            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                    @click.prevent="getTypeProducts('vodka')" v-bind:class="{ active: isActive }"
+                    style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover" @click.prevent="getFavProducts('甜')"
-                    v-bind:class="{ active: isActive }" style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
+            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                    @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ active: isActive }"
+                    style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
         </ul>
         <h3>步驟二: 心情顏色</h3>
         <ul class="row">
-            <li class="col-2 text-center"><a href="" class="btn d-block border-rounded-100 py-3" style="background-color: blue;"
-                    @click.prevent="getAlcProducts('20')">&lt 20度</a></li>
-            <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
-                    @click.prevent="getAlcProducts('30')">20度~40度</a></li>
-            <li class="col-2 text-center"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
-                    @click.prevent="getAlcProducts('40')">&gt 40度</a></li>
+            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                          height: 100px;
+                          background-color: rgba(234, 213, 21, 1);" @click.prevent="getRandom(products)"></a>
+            </li>
+            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                          height: 100px;
+                          background-color: rgba(215, 11, 35, 1);" @click.prevent="getFavProducts('不甜')"></a>
+            </li>
+            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                          height:  100px;
+                          background-color: rgba(17, 125, 253, 1);" @click.prevent="getFavProducts('甜')"></a>
+            </li>
         </ul>
 
 
@@ -96,9 +107,19 @@
         </ul>
         <p v-else>尚未選擇喜好</p>
     </div>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="glass my-5 position-relative" style="height: 400px; width: 200px;">
+            <div class="wiskey position-absolute" style="height: 200px; width: 200px;">
+
+            </div>
+        </div>
+    </div>
+    
+    {{ randomObject }}
 </template>
   
 <script >
+import { isObject } from '@vue/shared';
 import Swal from 'sweetalert2'
 import { RouterLink } from 'vue-router';
 
@@ -109,39 +130,63 @@ export default {
         return {
             products: {},
             isLoading: false,
-            tempProducts: [],
             finalProducts: [],
-            tempFav: '',
+            randomObject: {},
             tempAlc: 0,
             showNum: true,
             isActive: false
         }
     },
     methods: {
+        getTypeProducts(category) {
+            this.showNum = true
+            this.finalProducts = []
+            this.isLoading = true;
+            this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
+                .then((res) => {
+                    this.isActive = true
+                    this.products = res.data.products;
+                    this.isLoading = false;
+                })
+        },
+
+        getRandom(array) {
+                if (Object.keys(this.products).length === 0) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '請先選擇基底',
+                    })
+                }
+                else {
+                    const randomIndex = Math.floor(Math.random() * array.length);
+                    this.randomObject = array[randomIndex];
+                }
+        },
+
         getFavProducts(fav) {
             this.showNum = true
             this.finalProducts = []
             this.isLoading = true;
-            this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
-                .then((res) => {
-                    this.isActive = true
-                    this.products = res.data.products;
-                    this.tempProducts = []
-                    this.tempFav = fav
-                    this.products.forEach(i => {
-                        if (this.tempFav == "甜" && i.fav == "甜") {
-                            this.tempProducts.push(i);
-                        }
-                        if (this.tempFav == "適中" && i.fav == "適中") {
-                            this.tempProducts.push(i);
-
-                        }
-                        if (this.tempFav == "不甜" && i.fav == "不甜") {
-                            this.tempProducts.push(i);
-                        }
-                    })
-                    this.isLoading = false;
+            if (this.products.length == 0) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '請先選擇基底',
                 })
+            } else {
+                this.products.forEach(i => {
+                    if (this.tempFav == "甜" && i.fav == "甜") {
+                        this.finalProducts.push(i);
+                    }
+                    if (this.tempFav == "適中" && i.fav == "適中") {
+                        this.finalProducts.push(i);
+
+                    }
+                    if (this.tempFav == "不甜" && i.fav == "不甜") {
+                        this.finalProducts.push(i);
+                    }
+                })
+            }
+            this.isLoading = false;
         },
 
         getAlcProducts(alc) {
@@ -182,11 +227,13 @@ export default {
 }
 </script>
   
-<style>@media (min-width: 1024px) {
+<style>
+@media (min-width: 1024px) {
     .about {
         min-height: 100vh;
         display: flex;
         align-items: center;
     }
-}</style>
+}
+</style>
   

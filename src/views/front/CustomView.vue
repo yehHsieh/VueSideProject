@@ -5,22 +5,22 @@
       <h2>挑出自己偏好的調酒吧</h2>
       <RouterLink to="/game">
         <p class="d-inline">今日調酒</p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+        </svg>
       </RouterLink>
     </div>
     <h3>我的收藏</h3>
     <h3>步驟一: 選風味</h3>
     <ul class="row">
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
-          @click.prevent="getFavProducts('甜')" v-bind:class="{ active: isActive }">甜</a></li>
+          @click.prevent="getFavProducts('甜')" v-bind:class="{ active: isActive1 }">甜</a></li>
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
-          @click.prevent="getFavProducts('適中')">適中</a></li>
+          @click.prevent="getFavProducts('適中')" v-bind:class="{ active: isActive2 }">適中</a></li>
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
-          @click.prevent="getFavProducts('不甜')">不甜</a></li>
+          @click.prevent="getFavProducts('不甜')" v-bind:class="{ active: isActive3 }">不甜</a></li>
     </ul>
     <h3>步驟二: 選酒精度數</h3>
     <ul class="row">
@@ -102,7 +102,9 @@ export default {
       tempFav: '',
       tempAlc: 0,
       showNum: true,
-      isActive: false
+      isActive1: false,
+      isActive2: false,
+      isActive3: false
     }
   },
   methods: {
@@ -110,22 +112,27 @@ export default {
       this.showNum = true
       this.finalProducts = []
       this.isLoading = true;
+      this.isActive1 = false
+      this.isActive2 = false
+      this.isActive3 = false
       this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
         .then((res) => {
-          this.isActive = true
           this.products = res.data.products;
           this.tempProducts = []
           this.tempFav = fav
           this.products.forEach(i => {
             if (this.tempFav == "甜" && i.fav == "甜") {
               this.tempProducts.push(i);
+              this.isActive1 = true
             }
             if (this.tempFav == "適中" && i.fav == "適中") {
               this.tempProducts.push(i);
+              this.isActive2 = true
 
             }
             if (this.tempFav == "不甜" && i.fav == "不甜") {
               this.tempProducts.push(i);
+              this.isActive3 = true
             }
           })
           this.isLoading = false;
