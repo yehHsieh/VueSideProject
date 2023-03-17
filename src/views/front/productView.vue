@@ -91,6 +91,31 @@
             </div>
         </div>
     </div>
+    <ul class="row my-5">
+        <h3>相似商品</h3>
+        <li v-for="product in simiProducts" :key="product.id"
+            class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card border-0">
+                <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
+
+                <div class="card-body text-center">
+                    <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                    <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                    <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+
+                    <p>
+                        <RouterLink :to="`${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg>
+                        </RouterLink>
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
 </template>
 
 <script>
@@ -99,11 +124,14 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import { mapState, mapActions } from "pinia";
 import cartStore from '../../stores/cart'
 import Swal from 'sweetalert2';
+import { RouterLink } from 'vue-router';
+
 
 export default {
     data() {
         return {
             product: {},
+            simiProducts: {},
             num: 1,
         }
     },
@@ -113,14 +141,26 @@ export default {
     methods: {
         getProduct() {
             console.log(this.$route.params)
+            console.log(this.$route)
             const { id } = this.$route.params;
-            this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/product/${id}`)
+            this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/product/${id}`)
                 .then((res) => {
                     console.log(res);
                     this.product = res.data.product;
+
+                    return this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${this.product.category}`);
                 })
+                .then((res) => {
+                    console.log(res);
+                    this.simiProducts = res.data.products;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+            this.$forceUpdate();
+
         },
-        ...mapActions(cartStore ,["getCart"]),
+        ...mapActions(cartStore, ["getCart"]),
         plusProduct() {
             this.num++;
         },
@@ -171,11 +211,14 @@ export default {
 
         },
     },
-
+    watch: {
+        product(){
+            this.getProduct();
+        }
+    },
     mounted() {
-
         this.getProduct();
         this.num
-    }
+    },
 }
 </script>

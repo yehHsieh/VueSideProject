@@ -15,39 +15,42 @@
         <h3>步驟一: 選基底</h3>
         <ul class="row offset-2">
             <li class="col-2 text-center"><a href="" class="d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('brandy')" v-bind:class="{ active: isActive }"
+                    @click.prevent="getTypeProducts('brandy')" v-bind:class="{ bgBtn: isActive[0] }"
                     style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
             <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('gin')" v-bind:class="{ active: isActive }"
+                    @click.prevent="getTypeProducts('gin')" v-bind:class="{ bgBtn: isActive[1] }"
                     style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
             <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('rum')" v-bind:class="{ active: isActive }"
+                    @click.prevent="getTypeProducts('rum')" v-bind:class="{ bgBtn: isActive[2] }"
                     style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
             <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('vodka')" v-bind:class="{ active: isActive }"
+                    @click.prevent="getTypeProducts('vodka')" v-bind:class="{ bgBtn: isActive[3] }"
                     style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
             <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ active: isActive }"
+                    @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ bgBtn: isActive[4] }"
                     style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
                         class="image-contain"></a></li>
         </ul>
         <h3>步驟二: 心情顏色</h3>
         <ul class="row">
             <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                          height: 100px;
-                          background-color: rgba(234, 213, 21, 1);" @click.prevent="getRandom(products)"></a>
+                                          height: 100px;
+                                          background-color: rgba(234, 213, 21, 1);"
+                    @click.prevent="getRandom(products, 'yellow')"></a>
             </li>
             <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                          height: 100px;
-                          background-color: rgba(215, 11, 35, 1);" @click.prevent="getFavProducts('不甜')"></a>
+                                          height: 100px;
+                                          background-color: rgba(215, 11, 35, 1);"
+                    @click.prevent="getRandom(products, 'red')"></a>
             </li>
             <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                          height:  100px;
-                          background-color: rgba(17, 125, 253, 1);" @click.prevent="getFavProducts('甜')"></a>
+                                          height:  100px;
+                                          background-color: rgba(17, 125, 253, 1);"
+                    @click.prevent="getRandom(products, 'blue')"></a>
             </li>
         </ul>
 
@@ -109,13 +112,19 @@
     </div>
     <div class="d-flex align-items-center justify-content-center">
         <div class="glass my-5 position-relative" style="height: 400px; width: 200px;">
-            <div class="wiskey position-absolute" style="height: 200px; width: 200px;">
-
+            <div class="position-absolute end-0 bottom-0 start-0" style="height: 200px; width: 200px;"
+                :class="{ brandy: isActive[0], gin: isActive[1], rum: isActive[2], vodka: isActive[3], wiskey: isActive[4] }">
+            </div>
+            <div class="position-absolute end-0 bottom-50 start-0" style="height: 100px; width: 200px;"
+                :class="{ yellow: isColor[0], red: isColor[1], blue: isColor[2] }">
             </div>
         </div>
     </div>
-    
-    {{ randomObject }}
+    <div class="d-flex align-items-center justify-content-center">
+        <button class="btn btn-outline-primary d-block rounded-pill py-3" @click="getCoupon">領取你今日的特調</button>
+    </div>
+    {{ randomArray }}
+    {{ randomObject.title }}
 </template>
   
 <script >
@@ -134,90 +143,77 @@ export default {
             randomObject: {},
             tempAlc: 0,
             showNum: true,
-            isActive: false
+            isActive: [false, false, false, false, false],
+            isColor: [false, false, false],
+            couponArray: [{ name: "5折優惠券", code: "dink" }, { name: "7折優惠券", code: "every" }, { name: "3折優惠券", code: "day" }],
+            randomArray: []
         }
     },
     methods: {
         getTypeProducts(category) {
+            this.isActive = [false, false, false, false, false];
             this.showNum = true
             this.finalProducts = []
             this.isLoading = true;
             this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
                 .then((res) => {
-                    this.isActive = true
                     this.products = res.data.products;
                     this.isLoading = false;
                 })
+            //判斷點擊的項目 
+            const categoryIndex = {
+                brandy: 0,
+                gin: 1,
+                rum: 2,
+                vodka: 3,
+                wiskey: 4
+            }
+            this.isActive[categoryIndex[category]] = true;
         },
 
-        getRandom(array) {
-                if (Object.keys(this.products).length === 0) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: '請先選擇基底',
-                    })
-                }
-                else {
-                    const randomIndex = Math.floor(Math.random() * array.length);
-                    this.randomObject = array[randomIndex];
-                }
-        },
-
-        getFavProducts(fav) {
-            this.showNum = true
-            this.finalProducts = []
-            this.isLoading = true;
-            if (this.products.length == 0) {
+        getRandom(array, color) {
+            if (Object.keys(this.products).length === 0) {
                 Swal.fire({
                     icon: 'error',
                     title: '請先選擇基底',
                 })
-            } else {
-                this.products.forEach(i => {
-                    if (this.tempFav == "甜" && i.fav == "甜") {
-                        this.finalProducts.push(i);
-                    }
-                    if (this.tempFav == "適中" && i.fav == "適中") {
-                        this.finalProducts.push(i);
-
-                    }
-                    if (this.tempFav == "不甜" && i.fav == "不甜") {
-                        this.finalProducts.push(i);
-                    }
-                })
             }
-            this.isLoading = false;
-        },
+            else {
+                this.isColor = [false, false, false];
 
-        getAlcProducts(alc) {
-            this.isLoading = true;
-            this.tempAlc = alc
-            this.finalProducts = []
-            if (this.tempProducts.length == 0) {
+                const randomIndex = Math.floor(Math.random() * array.length);
+                this.randomObject = array[randomIndex];
+                const colorIndex = {
+                    yellow: 0,
+                    red: 1,
+                    blue: 2,
+                }
+                this.isColor[colorIndex[color]] = true;
+            }
+        },
+        getCoupon() {
+            if (Object.keys(this.randomObject).length === 0) {
                 Swal.fire({
                     icon: 'error',
-                    title: '請先選擇風味',
+                    title: '尚未完成調酒',
+                })
+            } else {
+                const randomIndex = Math.floor(Math.random() * this.couponArray.length);
+                this.randomArray = this.couponArray[randomIndex];
+                Swal.fire({
+                    title: `專屬特調${this.randomObject.title}`,
+                    html: `<P>恭喜獲得${this.randomArray.name}</p>  <P class="text-primary">優惠碼 ${this.randomArray.code}</p>`,
+                    imageUrl: `${this.randomObject.imagesUrl}`,
+                    imageWidth: 200,
+                    imageHeight: 400,
+                    imageAlt: 'Custom image',
+                    customClass: {
+                        imageUrl: 'image-cover' // 自定義樣式類名
+                    }
                 })
             }
-            this.tempProducts.forEach(i => {
-                if (this.tempAlc == '20' && i.alc < 20) {
-                    this.finalProducts.push(i);
 
-                }
-                if (this.tempAlc == '30' && i.alc >= 20 && i.alc < 40) {
-                    this.finalProducts.push(i);
-
-                }
-                if (this.tempAlc == '40' && i.alc >= 40) {
-                    this.finalProducts.push(i);
-                }
-                if (this.finalProducts.length == 0) {
-                    this.showNum = false
-                }
-            })
-            this.isLoading = false;
         },
-
 
     },
 

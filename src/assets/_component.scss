@@ -100,37 +100,138 @@
 }
 
 .brandy {
-    right: 0;
-    bottom: 0%;
-    left: 0;
     background: linear-gradient(to bottom, orange, orangered);
     opacity: 0.7;
+    animation-name: grow1;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
 }
+
 .gin {
-    right: 0;
-    bottom: 0%;
-    left: 0;
     background: linear-gradient(to bottom, rgb(150, 230, 227), rgba(87, 231, 227, 1));
     opacity: 0.7;
+    animation-name: grow2;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
 }
+
 .rum {
-    right: 0;
-    bottom: 0%;
-    left: 0;
     background: linear-gradient(to bottom, rgb(170, 1, 7), rgba(104, 0, 3, 1));
     opacity: 0.7;
+    animation-name: grow3;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
 }
+
 .vodka {
-    right: 0;
-    bottom: 0%;
-    left: 0;
     background: linear-gradient(to bottom, rgb(212, 233, 231), rgb(165, 231, 225));
     opacity: 0.7;
+    animation-name: grow4;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
 }
+
 .wiskey {
-    right: 0;
-    bottom: 0%;
-    left: 0;
     background: linear-gradient(to bottom, rgb(231, 144, 50), rgb(165, 89, 7));
     opacity: 0.7;
+    animation-name: grow5;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+}
+
+@keyframes grow1 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 200px;
+    }
+}
+@keyframes grow2 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 200px;
+    }
+}
+@keyframes grow3 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 200px;
+    }
+}
+@keyframes grow4 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 200px;
+    }
+}
+@keyframes grow5 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 200px;
+    }
+}
+
+
+.yellow {
+    background: linear-gradient(to bottom, rgb(233, 215, 55), rgba(234, 213, 21, 1));
+    opacity: 0.7;
+    animation-name: grow6;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+}
+.red {
+    background: linear-gradient(to bottom, rgb(206, 59, 76), rgb(215, 11, 35));
+    opacity: 0.7;
+    animation-name: grow7;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+}
+.blue {
+    background: linear-gradient(to bottom, rgb(84, 153, 236), rgba(17, 125, 253, 1));
+    opacity: 0.7;
+    animation-name: grow8;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+}
+
+@keyframes grow6 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 100px;
+    }
+}
+@keyframes grow7 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 100px;
+    }
+}
+@keyframes grow8 {
+    from {
+        height: 0px;
+    }
+
+    to {
+        height: 100px;
+    }
 }
