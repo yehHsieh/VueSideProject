@@ -51,60 +51,64 @@
     <div class="bg-secondary py-5">
       <div class="container">
         <div class="d-flex justify-content-center align-items-center">
-        <h2 class="fw-bold mb-3">調酒基底</h2>
-      </div>
-      <swiper :slides-per-view="3.5" :space-between="5" @swiper="onSwiper" @slideChange="onSlideChange">
-        <swiper-slide>
-          <div class="card" style="width: 16rem;">
-            <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
-            <div class="card-body bg-light text-center p-4">
-              <h5 class="card-title">白蘭地</h5>
-              <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
-              </p>
+          <h2 class="fw-bold mb-3">調酒基底</h2>
+        </div>
+        <swiper :slides-per-view="3.5" :space-between="5" @swiper="onSwiper" @slideChange="onSlideChange">
+          <swiper-slide>
+            <div class="card" style="width: 16rem;">
+              <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-light text-center p-4">
+                <h5 class="card-title">白蘭地</h5>
+                <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
+                </p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide><div class="card" style="width: 16rem;">
-            <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
-            <div class="card-body bg-light text-center p-4">
-              <h5 class="card-title">琴酒</h5>
-              <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
-              </p>
+          <swiper-slide>
+            <div class="card" style="width: 16rem;">
+              <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-light text-center p-4">
+                <h5 class="card-title">琴酒</h5>
+                <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
+                </p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide><div class="card" style="width: 16rem;">
-            <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
-            <div class="card-body bg-light text-center p-4">
-              <h5 class="card-title">蘭姆酒</h5>
-              <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
-              </p>
+          <swiper-slide>
+            <div class="card" style="width: 16rem;">
+              <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-light text-center p-4">
+                <h5 class="card-title">蘭姆酒</h5>
+                <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
+                </p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide><div class="card" style="width: 16rem;">
-            <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
-            <div class="card-body bg-light text-center p-4">
-              <h5 class="card-title">伏特加</h5>
-              <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
-              </p>
+          <swiper-slide>
+            <div class="card" style="width: 16rem;">
+              <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-light text-center p-4">
+                <h5 class="card-title">伏特加</h5>
+                <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
+                </p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
+          </swiper-slide>
 
-        <swiper-slide><div class="card" style="width: 16rem;">
-            <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
-            <div class="card-body bg-light text-center p-4">
-              <h5 class="card-title">威士忌</h5>
-              <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
-              </p>
+          <swiper-slide>
+            <div class="card" style="width: 16rem;">
+              <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
+              <div class="card-body bg-light text-center p-4">
+                <h5 class="card-title">威士忌</h5>
+                <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
+                </p>
+              </div>
             </div>
-          </div>
-        </swiper-slide>
-      </swiper>
+          </swiper-slide>
+        </swiper>
       </div>
 
     </div>

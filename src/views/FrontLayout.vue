@@ -1,14 +1,67 @@
 <template>
-    <div class="d-flex justify-content-between align-items-center text-center">
+    <div class="d-flex justify-content-center align-items-center text-center">
         <h1 class="mb-0">
-            <a class="navbar-brand me-0 py-0" href="index.html"><img src="" alt="logo"
-                    style="width: 60px; height: 60px;"></a>
+            <a class="navbar-brand me-0 py-0" href="index.html"><img src="../assets/img/logo2.png" alt="logo"
+                    style="width: 200px; height: 100px;" class="image-contain"></a>
         </h1>
     </div>
-    <div class="bg-secondary">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+           
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item  border-base py-lg-2">
+                        <router-link to="/" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">首頁
+                        </router-link>
+                    </li>
+                    <li class="nav-item  border-base py-lg-2">
+                        <router-link to="/Custom" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">我的酒庫
+                        </router-link>
+                    </li>
+                    <li class="nav-item  border-base py-lg-2">
+                        <router-link to="/products" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">前台產品列表
+                        </router-link>
+                    </li>
+                    <li class="nav-item  border-base py-lg-2">
+                        <router-link to="/cart"
+                            class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5 position-relative fs-7">
+
+
+                            <span class="position-absolute top-10 start-80 translate-middle badge rounded-pill bg-danger ">
+                                {{ cartNum }}
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-cart-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                            </svg>
+                        </router-link>
+                    </li>
+                    <li class="nav-item  border-base py-lg-2">
+                        <router-link to="/Admin" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">後台
+                        </router-link>
+                    </li>
+                    <li class="nav-item border-base py-lg-2">
+                        <router-link to="/Login" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">登入
+                        </router-link>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div class="bg-secondary">
         <nav class="navbar navbar-expand-lg py-0 sticky-top d-flex justify-content-between container">
             <div class="py-3 py-lg-4 d-flex align-items-center">
-
                 <input class="menu-check" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                     type="checkbox" id="menu-check" />
@@ -22,10 +75,9 @@
             </div>
 
 
-
-            <!-- 下拉選單 -->
-            <div class="collapse navbar-collapse border-0 justify-content-end" id="navbarSupportedContent">
-                <ul class="navbar-nav text-center fw-bold">
+           
+            <div class="collapse navbar-collapse border-0 " id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-lg-0 py-lg-1 border-top text-center fw-bold">
                     <li class="nav-item  border-base py-lg-2">
                         <router-link to="/" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">首頁
                         </router-link>
@@ -68,10 +120,7 @@
                 </ul>
             </div>
         </nav>
-
-    </div>
-
-
+    </div> -->
 
 
     <router-view></router-view>
@@ -79,7 +128,7 @@
     <footer class="footer bg-secondary py-2">
         <div class="container text-center d-lg-flex justify-content-between align-items-center">
             <router-link to="/">
-                <h2 class="m-0"><img src="" alt="logo" style="width: 50px; height: 50px;"></h2>
+                <h2 class="m-0"><img src="../assets/img/logo2.png" alt="logo" style="width: 100px; height: 50px;"></h2>
             </router-link>
             <p class="fs-12p fs-lg-14p m-0">©BREAD / all rights reserved.</p>
             <ul class="d-flex justify-content-center justify-content-lg-between m-0 p-0">
@@ -113,16 +162,16 @@ import { mapActions, mapState } from "pinia";
 
 export default {
     computed: {
-        ...mapState(cartStore, ['data', 'carts', 'total', 'final_total','cartNum']),
+        ...mapState(cartStore, ['data', 'carts', 'total', 'final_total', 'cartNum']),
     },
     components: {
         RouterView,
         RouterLink,
     },
-    methods:{
+    methods: {
         ...mapActions(cartStore, ['getCart'])
     },
-    mounted(){
+    mounted() {
         this.getCart()
     }
 };
