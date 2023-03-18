@@ -10,7 +10,7 @@
         <div class="d-flex justify-content-between">
             <h2>商品確認</h2>
             <div class="d-flex justify-content-between">
-                <input type="text" class="me-3 rounded-pill" v-model.trim="couponCode" placeholder="請輸入優惠碼">
+                <input type="text" class="me-3 rounded-pill p-2" v-model.trim="couponCode" placeholder="請輸入優惠碼">
                 <button class="btn btn-outline-primary rounded-pill py-1 px-4 text-center" @click="getCoupon">驗證優惠碼</button>
             </div>
         </div>

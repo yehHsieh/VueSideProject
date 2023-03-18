@@ -12,7 +12,7 @@
         </svg>
       </RouterLink>
     </div>
-    <h3>我的收藏</h3>
+
     <h3>步驟一: 選風味</h3>
     <ul class="row">
       <li class="col-2 text-center"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
@@ -83,13 +83,42 @@
       <li v-if="!showNum">無符合條件商品</li>
     </ul>
     <p v-else>尚未選擇喜好</p>
+    <h3>我的收藏</h3>
+        <ul class="row my-5">
+        <li v-for="(product, inde) in favoriteItems" :key="product.id"
+            class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+            <div class="card border-0">
+
+                <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt=""
+                        width="200"></a>
+
+                <div class="card-body text-center">
+                    <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                    <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                    <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+
+                    <p>
+                        <RouterLink :to="`/product/${product.id}`"
+                            class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊 <svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                            </svg></RouterLink>
+                    </p>
+                </div>
+            </div>
+        </li>
+        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+    </ul>
   </div>
 </template>
 
 <script >
 import Swal from 'sweetalert2'
 import { RouterLink } from 'vue-router';
-
+import favoritesStore from '../../stores/favorites'
+import { mapState } from 'pinia';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
 export default {
@@ -107,6 +136,9 @@ export default {
       isActive3: false
     }
   },
+  computed:{
+        ...mapState(favoritesStore,['favoriteItems'])
+    },
   methods: {
     getFavProducts(fav) {
       this.showNum = true
