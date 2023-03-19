@@ -43,24 +43,6 @@
         </li>
         <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
     </ul>
-
-    <table class="table">
-        <tbody>
-            <tr v-for="product in products" :key="product.id">
-                {{ product.category }}
-                <td>{{ product.title }}</td>
-                <td><img :src="product.imagesUrl" alt="" width="200"></td>
-                <td>
-                    <RouterLink :to="`/product/${product.id}`" class="btn btn-outline-primary">連結至</RouterLink>
-                    <button type="button" class="btn btn-outline-secondary" @click="addToCart(product.id)">加入購物車</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    {{ favoriteItems }}
-    {{ filled }}
-    {{ empty }}
 </template>
 
 <script>

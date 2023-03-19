@@ -15,3 +15,11 @@
         @content
     }
 }
+
+
+.bg-rounded{
+    background-color:rgba(247, 198, 121, 0.986);
+    ;
+    backdrop-filter:blur(8px);
+    border-radius:24px;
+}

@@ -91,3 +91,14 @@
 .bgBtn{
     background-color: $secondary;
 }
+
+.rounded-24{
+    border-radius:24px;
+}
+
+.hide{
+        width: 50px !important;
+    @include laptop{
+        width: 100px !important;
+    }
+}

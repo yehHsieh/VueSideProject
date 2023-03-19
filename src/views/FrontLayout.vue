@@ -128,7 +128,7 @@
     <footer class="footer bg-secondary py-2">
         <div class="container text-center d-lg-flex justify-content-between align-items-center">
             <router-link to="/">
-                <h2 class="m-0"><img src="../assets/img/logo2.png" alt="logo" style="width: 100px; height: 50px;"></h2>
+                <h2 class="m-lg-0 my-1"><img src="../assets/img/logo2.png" alt="logo" style="width: 100px; height: 50px;"></h2>
             </router-link>
             <p class="fs-12p fs-lg-14p m-0">©BREAD / all rights reserved.</p>
             <ul class="d-flex justify-content-center justify-content-lg-between m-0 p-0">

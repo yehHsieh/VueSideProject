@@ -1,130 +1,135 @@
 <template>
     <Loading :active="isLoading" :z-index="1060"></Loading>
-    <div class="container">
-        <div class="d-flex justify-content-between">
-            <h2>今日調酒</h2>
-            <RouterLink to="/Custom">
-                <p class="d-inline">挑出自己偏好的調酒吧</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                </svg>
+    <div class="container" style="height: 75vh;">
+        <div class="d-lg-flex justify-content-between my-5">
+            <h2 class="fw-bold">今日調酒</h2>
+            <RouterLink to="/Custom" class="none-decoration">
+                <p class="btn btn-primary d-inline rounded-pill py-lg-3">偏好調酒<svg xmlns="http://www.w3.org/2000/svg"
+                        width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                    </svg></p>
             </RouterLink>
         </div>
-        <h3>步驟一: 選基底</h3>
-        <ul class="row offset-2">
-            <li class="col-2 text-center"><a href="" class="d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('brandy')" v-bind:class="{ bgBtn: isActive[0] }"
-                    style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
-                        class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('gin')" v-bind:class="{ bgBtn: isActive[1] }"
-                    style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
-                        class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('rum')" v-bind:class="{ bgBtn: isActive[2] }"
-                    style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
-                        class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('vodka')" v-bind:class="{ bgBtn: isActive[3] }"
-                    style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
-                        class="image-contain"></a></li>
-            <li class="col-2 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
-                    @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ bgBtn: isActive[4] }"
-                    style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
-                        class="image-contain"></a></li>
-        </ul>
-        <h3>步驟二: 心情顏色</h3>
-        <ul class="row">
-            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                          height: 100px;
-                                          background-color: rgba(234, 213, 21, 1);"
-                    @click.prevent="getRandom(products, 'yellow')"></a>
-            </li>
-            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                          height: 100px;
-                                          background-color: rgba(215, 11, 35, 1);"
-                    @click.prevent="getRandom(products, 'red')"></a>
-            </li>
-            <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                          height:  100px;
-                                          background-color: rgba(17, 125, 253, 1);"
-                    @click.prevent="getRandom(products, 'blue')"></a>
-            </li>
-        </ul>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="mb-3 mt-5">步驟一: 選基底</h3>
+                <ul class="row mt-3 mb-5 p-0 offset-lg-2">
+                    <li class="col-lg-2 col-6 text-center"><a href="" class="d-block py-3 btn-outline-hover"
+                            @click.prevent="getTypeProducts('brandy')" v-bind:class="{ bgBtn: isActive[0] }"
+                            style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
+                                class="image-contain"></a></li>
+                    <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                            @click.prevent="getTypeProducts('gin')" v-bind:class="{ bgBtn: isActive[1] }"
+                            style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
+                                class="image-contain"></a></li>
+                    <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                            @click.prevent="getTypeProducts('rum')" v-bind:class="{ bgBtn: isActive[2] }"
+                            style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
+                                class="image-contain"></a></li>
+                    <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                            @click.prevent="getTypeProducts('vodka')" v-bind:class="{ bgBtn: isActive[3] }"
+                            style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
+                                class="image-contain"></a></li>
+                    <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                            @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ bgBtn: isActive[4] }"
+                            style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
+                                class="image-contain"></a></li>
+                </ul>
+                <h3 class="my-3">步驟二: 心情顏色</h3>
+                <ul class="row mt-5 mb-5 p-0">
+                    <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                                              height: 100px;
+                                              background-color: rgba(234, 213, 21, 1);"
+                            @click.prevent="getRandom(products, 'yellow')"></a>
+                        <p>醉</p>
+                    </li>
+                    <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                                              height: 100px;
+                                              background-color: rgba(215, 11, 35, 1);"
+                            @click.prevent="getRandom(products, 'red')"></a>
+                        <p>很醉</p>
+                    </li>
+                    <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
+                                              height:  100px;
+                                              background-color: rgba(17, 125, 253, 1);"
+                            @click.prevent="getRandom(products, 'blue')"></a>
+                        <p>不能再醉了</p>
+                    </li>
+                </ul>
 
 
 
-        <ul class="row my-5" v-if="products.length > 0">
-            <li v-if="finalProducts.length == 0 && showNum" v-for="product in tempProducts" :key="product.id"
-                class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-                <div class="card border-0">
-                    <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
-                            width="200"></a>
+                <ul class="row my-5" v-if="products.length > 0">
+                    <li v-if="finalProducts.length == 0 && showNum" v-for="product in tempProducts" :key="product.id"
+                        class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                        <div class="card border-0">
+                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
+                                    width="200"></a>
 
-                    <div class="card-body text-center">
-                        <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
-                        <p class="card-text me-2">$ {{ product.origin_price }}</p>
-                        <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+                            <div class="card-body text-center">
+                                <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                                <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                                <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
 
-                        <p>
-                            <RouterLink :to="`/product/${product.id}`"
-                                class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                                </svg>
-                            </RouterLink>
-                        </p>
-                    </div>
-                </div>
-            </li>
+                                <p>
+                                    <RouterLink :to="`/product/${product.id}`"
+                                        class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </RouterLink>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
 
-            <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
-                class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-                <div class="card border-0" v-if="finalProducts.length > 0">
-                    <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
-                            width="200"></a>
+                    <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
+                        class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                        <div class="card border-0" v-if="finalProducts.length > 0">
+                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
+                                    width="200"></a>
 
-                    <div class="card-body text-center">
-                        <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
-                        <p class="card-text me-2">$ {{ product.origin_price }}</p>
-                        <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+                            <div class="card-body text-center">
+                                <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                                <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                                <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
 
-                        <p>
-                            <RouterLink :to="`/product/${product.id}`"
-                                class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd"
-                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                                </svg>
-                            </RouterLink>
-                        </p>
-                    </div>
-                </div>
-            </li>
-            <li v-if="!showNum">無符合條件商品</li>
-        </ul>
-        <p v-else>尚未選擇喜好</p>
-    </div>
-    <div class="d-flex align-items-center justify-content-center">
-        <div class="glass my-5 position-relative" style="height: 400px; width: 200px;">
-            <div class="position-absolute end-0 bottom-0 start-0" style="height: 200px; width: 200px;"
-                :class="{ brandy: isActive[0], gin: isActive[1], rum: isActive[2], vodka: isActive[3], wiskey: isActive[4] }">
+                                <p>
+                                    <RouterLink :to="`/product/${product.id}`"
+                                        class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                        </svg>
+                                    </RouterLink>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="position-absolute end-0 bottom-50 start-0" style="height: 100px; width: 200px;"
-                :class="{ yellow: isColor[0], red: isColor[1], blue: isColor[2] }">
+            <div class="col-lg-6 d-flex align-items-center justify-content-center flex-column">
+                <div class="d-flex align-items-center justify-content-center pt-5 pb-2">
+                    <div class="glass my-3 position-relative" style="height: 400px; width: 200px;">
+                        <div class="position-absolute end-0 bottom-0 start-0" style="height: 200px; width: 200px;"
+                            :class="{ brandy: isActive[0], gin: isActive[1], rum: isActive[2], vodka: isActive[3], wiskey: isActive[4] }">
+                        </div>
+                        <div class="position-absolute end-0 bottom-50 start-0" style="height: 100px; width: 200px;"
+                            :class="{ yellow: isColor[0], red: isColor[1], blue: isColor[2] }">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mb-3">
+                    <button class="btn btn-outline-primary d-block rounded-pill py-3" @click="getCoupon">領取你今日的特調</button>
+                </div>
             </div>
         </div>
     </div>
-    <div class="d-flex align-items-center justify-content-center">
-        <button class="btn btn-outline-primary d-block rounded-pill py-3" @click="getCoupon">領取你今日的特調</button>
-    </div>
-    {{ randomArray }}
-    {{ randomObject.title }}
 </template>
   
 <script >

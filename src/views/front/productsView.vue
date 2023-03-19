@@ -26,15 +26,19 @@
                 <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill py-3">威士忌</RouterLink>
             </div>
         </div>
+
         <router-view></router-view>
-    
 
     </div>
+    {{ products }}
 </template>
 
 <script>
 import { RouterView, RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
+import favoritesStore from '../../stores/favorites'
+import Pagination from '../../components/Pagination.vue';
+import { mapActions, mapState } from 'pinia';
 
 export default {
     data() {
@@ -42,13 +46,15 @@ export default {
             products: [],
         }
     },
-    
+    computed: {
+        ...mapState(favoritesStore, [ 'filled', 'empty'])
+    },
     methods: {
-        getProducts(page = 1) {
-            this.$http.get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/products?page=${page}`)
+        ...mapActions(favoritesStore, ['addFavorite', 'removeFavorite']),
+        getProducts(category) {
+            this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${category}`)
                 .then((res) => {
                     this.products = res.data.products;
-                    this.pagination = res.data.pagination;
                 })
         },
         addToCart(id) {
@@ -69,3 +75,4 @@ export default {
     }
 }
 </script>
+
