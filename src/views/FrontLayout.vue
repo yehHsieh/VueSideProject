@@ -25,7 +25,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item  border-base py-lg-2">
-                        <router-link to="/products" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">前台產品列表
+                        <router-link to="/AllProducts" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">雞尾酒專區
                         </router-link>
                     </li>
                     <li class="nav-item  border-base py-lg-2">
@@ -33,7 +33,7 @@
                             class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5 position-relative fs-7">
 
 
-                            <span class="position-absolute top-10 start-80 translate-middle badge rounded-pill bg-danger ">
+                            <span class="position-absolute top-10 start-lg-80 translate-middle badge rounded-pill bg-danger ">
                                 {{ cartNum }}
                                 <span class="visually-hidden">unread messages</span>
                             </span>

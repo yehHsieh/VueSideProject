@@ -2,35 +2,33 @@
     <div class="container">
         <h2 class="my-3 fw-bold">挑一個喜歡的基底吧</h2>
         <div class="row">
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary d-block rounded-pill py-3">全部</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/brandy`" class="btn btn-outline-primary d-block rounded-pill py-3">白蘭地</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/gin`" class="btn btn-outline-primary d-block rounded-pill py-3">琴酒</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/rum`" class="btn btn-outline-primary d-block rounded-pill py-3">蘭姆酒</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/vodka`" class="btn btn-outline-primary d-block rounded-pill py-3">伏特加</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill py-3">威士忌</RouterLink>
             </div>
         </div>
 
         <router-view></router-view>
-
     </div>
-    {{ products }}
 </template>
 
 <script>
@@ -71,7 +69,7 @@ export default {
     },
     mounted() {
         this.getProducts()
-        this.$router.push('/AllProducts')
+        // this.$router.push('/AllProducts')
     }
 }
 </script>

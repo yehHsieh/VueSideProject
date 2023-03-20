@@ -2,14 +2,15 @@
   <main>
     <div
       style="background-image:url(src/assets/img/pexels-picjumbocom-225236.jpg); height: 100vh;width: 100%; background-position: center; background-size: cover">
-      <h2 class="position-relative" style="height:100vh;"><router-link to="/products"
-          class="position-absolute end-20 top-55 text-center text-dark text-decoration-none p-3" style="background:rgba(255, 255, 255, 0.3);backdrop-filter:blur(2px);border-radius:24px;">
+      <h2 class="position-relative" style="height:100vh;"><RouterLink to="/AllProducts"
+          class="position-absolute end-20 top-55 text-center text-dark text-decoration-none p-3"
+          style="background:rgba(255, 255, 255, 0.3);backdrop-filter:blur(2px);border-radius:24px;">
           Gamara Bar
           <br>
           最初的心動
           <br>
           來點屬於你的調酒
-        </router-link>
+        </RouterLink>
       </h2>
     </div>
 
@@ -22,28 +23,31 @@
           <p>有時突然很想喝調酒，去了酒吧卻不知如何點起，<br>有時在家突然想喝點調酒，卻不想出門
           </p>
           <p>
-            沒關係，本店網站可提供 <br>依你喜愛口味挑出你的調酒， <br>或是一句你喜愛的調酒訂購原料自己完成
+            沒關係，本店網站可提供 <br>依你喜愛口味挑出你的調酒請點選<span class="text-danger">酒吧喝</span>， <br>或是找你喜愛的調酒訂購原料自己完成請點選<span
+              class="text-danger">家裡喝</span>
           </p>
         </div>
       </div>
     </div>
 
     <!-- light show -->
-    <div class="bg-primary">
+    <!-- <div class="bg-primary">
       DRINK WHEREEVER
-    </div>
+    </div> -->
 
     <!-- two place -->
     <div class="d-flex">
       <div class="d-flex align-items-center justify-content-center"
         style="background-image:url(src/assets/img/home.jpg); height: 50vh; width: 50%; background-position: center; background-size: cover">
-        <router-link to="/products" class=" text-white text-decoration-none fs-2">家裡喝
-        </router-link>
+        <RouterLink to="/AllProducts" class="text-white text-decoration-none fs-2 p-3"
+          style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">家裡喝
+        </RouterLink>
       </div>
       <div class="d-flex align-items-center justify-content-center"
         style="background-image:url(src/assets/img/alexander-kovacs-spZexiKfZTs-unsplash.jpg); height: 50vh; width: 50%; background-position: center; background-size: cover">
-        <router-link to="/Custom" class=" text-black text-decoration-none fs-2 bg-orangeLight">酒吧喝
-        </router-link>
+        <RouterLink to="/Custom" class=" text-black text-decoration-none fs-2 p-3"
+          style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">酒吧喝
+        </RouterLink>
       </div>
     </div>
 
@@ -68,58 +72,69 @@
           },
         }">
           <swiper-slide>
-            <div class="card rounded-24" style="width: 16rem;">
-              <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4">
-                <h5 class="card-title">白蘭地</h5>
-                <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
-                </p>
+            <RouterLink to="/brandy" class="text-decoration-none">
+              <div class="card rounded-24" style="width: 16rem;">
+                <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-light text-center p-4 text-black">
+                  <h5 class="card-title">白蘭地</h5>
+                  <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
+                  </p>
+                </div>
               </div>
-            </div>
+            </RouterLink>
+
           </swiper-slide>
 
           <swiper-slide>
-            <div class="card rounded-24" style="width: 16rem;">
-              <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4">
-                <h5 class="card-title">琴酒</h5>
-                <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
-                </p>
+            <RouterLink to="/gin" class="text-decoration-none">
+              <div class="card rounded-24" style="width: 16rem;">
+                <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-light text-center p-4 text-black">
+                  <h5 class="card-title">琴酒</h5>
+                  <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
+                  </p>
+                </div>
               </div>
-            </div>
+            </RouterLink>
           </swiper-slide>
 
           <swiper-slide>
-            <div class="card rounded-24" style="width: 16rem;">
-              <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4">
-                <h5 class="card-title">蘭姆酒</h5>
-                <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
-                </p>
+            <RouterLink to="/rum" class="text-decoration-none">
+              <div class="card rounded-24" style="width: 16rem;">
+                <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-light text-center p-4 text-black">
+                  <h5 class="card-title">蘭姆酒</h5>
+                  <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
+                  </p>
+                </div>
               </div>
-            </div>
+            </RouterLink>
           </swiper-slide>
 
           <swiper-slide>
-            <div class="card rounded-24" style="width: 16rem;">
-              <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4">
-                <h5 class="card-title">伏特加</h5>
-                <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
-                </p>
+            <RouterLink to="/vodka" class="text-decoration-none">
+              <div class="card rounded-24" style="width: 16rem;">
+                <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-light text-center p-4 text-black">
+                  <h5 class="card-title">伏特加</h5>
+                  <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
+                  </p>
+                </div>
               </div>
-            </div>
+            </RouterLink>
           </swiper-slide>
 
           <swiper-slide>
-            <div class="card rounded-24" style="width: 16rem;">
+            <RouterLink to="/wiskey" class="text-decoration-none">
+              <div class="card rounded-24" style="width: 16rem;">
               <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4">
+              <div class="card-body bg-light text-center p-4 text-black">
                 <h5 class="card-title">威士忌</h5>
                 <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
                 </p>
               </div>
             </div>
+            </RouterLink>
           </swiper-slide>
         </swiper>
       </div>
@@ -147,9 +162,9 @@
     </div>
 
     <!-- light show -->
-    <div class="bg-primary">
+    <!-- <div class="bg-primary">
       DRINK WHEREEVER
-    </div>
+    </div> -->
 
     <!-- bar info -->
     <div class="container my-5">
@@ -157,23 +172,27 @@
       <ul class="row p-0">
         <div class="col-lg-5 my-4 d-flex flex-column justify-content-between">
           <ul>
-          <li class="mb-3">營業時間 : Fri - Sun 1800 PM ~ 0100 AM</li>
-          <li class="mb-3">地址 : 台南市中西區民族路二段</li>
-          <li>連絡電話 : 090023002030</li>
+            <li class="mb-3">營業時間 : Fri - Sun 1800 PM ~ 0100 AM</li>
+            <li class="mb-3">地址 : 台南市中西區民族路二段</li>
+            <li>連絡電話 : 090023002030</li>
           </ul>
           <div class="mt-5">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.7645338387892!2d120.20359341412698!3d22.995684623104857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768a1b1e858b%3A0x5840c448395db7e9!2zNzAw5Y-w5Y2X5biC5Lit6KW_5Y2A5rCR5peP6Lev5LqM5q61!5e0!3m2!1szh-TW!2stw!4v1679202021649!5m2!1szh-TW!2stw" width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.7645338387892!2d120.20359341412698!3d22.995684623104857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e768a1b1e858b%3A0x5840c448395db7e9!2zNzAw5Y-w5Y2X5biC5Lit6KW_5Y2A5rCR5peP6Lev5LqM5q61!5e0!3m2!1szh-TW!2stw!4v1679202021649!5m2!1szh-TW!2stw"
+              width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
         <div class="col-lg-2"></div>
-        <div class="col-lg-5 p-3"><img src="../../assets/img/pexels-clem-onojeghuo-185768.jpg" alt="shop" style="height: 600px; width: 100%; border-radius:24px;"></div>
+        <div class="col-lg-5 p-3"><img src="../../assets/img/pexels-clem-onojeghuo-185768.jpg" alt="shop"
+            style="height: 600px; width: 100%; border-radius:24px;"></div>
       </ul>
     </div>
   </main>
 </template>
 
 <script>
-
+import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles

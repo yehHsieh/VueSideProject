@@ -1,6 +1,6 @@
 <template>
     <Loading :active="isLoading" :z-index="1060"></Loading>
-    <div class="container" style="height: 75vh;">
+    <div class="container">
         <div class="d-lg-flex justify-content-between my-5">
             <h2 class="fw-bold">今日調酒</h2>
             <RouterLink to="/Custom" class="none-decoration">
@@ -40,20 +40,20 @@
                 <h3 class="my-3">步驟二: 心情顏色</h3>
                 <ul class="row mt-5 mb-5 p-0">
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                              height: 100px;
-                                              background-color: rgba(234, 213, 21, 1);"
+                                                      height: 100px;
+                                                      background-color: rgba(234, 213, 21, 1);"
                             @click.prevent="getRandom(products, 'yellow')"></a>
                         <p>醉</p>
                     </li>
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                              height: 100px;
-                                              background-color: rgba(215, 11, 35, 1);"
+                                                      height: 100px;
+                                                      background-color: rgba(215, 11, 35, 1);"
                             @click.prevent="getRandom(products, 'red')"></a>
                         <p>很醉</p>
                     </li>
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                              height:  100px;
-                                              background-color: rgba(17, 125, 253, 1);"
+                                                      height:  100px;
+                                                      background-color: rgba(17, 125, 253, 1);"
                             @click.prevent="getRandom(products, 'blue')"></a>
                         <p>不能再醉了</p>
                     </li>
@@ -147,10 +147,14 @@ export default {
             finalProducts: [],
             randomObject: {},
             tempAlc: 0,
+            // 確認商品有符合篩選判斷
             showNum: true,
+            //按鈕判斷持續被啟動 
             isActive: [false, false, false, false, false],
+            // 判斷丟入的顏色
             isColor: [false, false, false],
             couponArray: [{ name: "5折優惠券", code: "dink" }, { name: "7折優惠券", code: "every" }, { name: "3折優惠券", code: "day" }],
+            // 隨機選優惠券
             randomArray: []
         }
     },

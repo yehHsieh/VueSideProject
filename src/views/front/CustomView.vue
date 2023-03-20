@@ -88,7 +88,7 @@
 
   </div>
 
-  <div class="bg-secondary py-3">
+  <div class="bg-secondary py-3 mb-2">
     <div class="container">
       <h3 class="fw-bold">我的收藏</h3>
       <p v-if="favoriteItems.length == 0">尚未有收藏</p>
@@ -140,7 +140,11 @@ export default {
       finalProducts: [],
       tempFav: '',
       tempAlc: 0,
+
+      // 確認商品有符合篩選判斷
       showNum: true,
+
+      //按鈕判斷持續被啟動 
       isActive1: false,
       isActive2: false,
       isActive3: false

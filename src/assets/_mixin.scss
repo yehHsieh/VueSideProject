@@ -17,9 +17,24 @@
 }
 
 
-.bg-rounded{
-    background-color:rgba(247, 198, 121, 0.986);
+.bg-rounded {
+    background-color: rgba(247, 198, 121, 0.986);
     ;
-    backdrop-filter:blur(8px);
-    border-radius:24px;
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+}
+
+.block-rwd-show {
+    display: none;
+
+    @include laptop {
+        display: table;
+    }
+}
+
+.block-rwd-none {
+    display: table;
+    @include laptop {
+        display: none;
+    }
 }

@@ -1,42 +1,46 @@
 <template>
     <div class="container">
         <div class="row my-3">
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/AllProducts`" class="btn btn-outline-primary d-block rounded-pill py-3">全部</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/brandy`" class="btn btn-outline-primary d-block rounded-pill py-3">白蘭地</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/gin`" class="btn btn-outline-primary d-block rounded-pill py-3">琴酒</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/rum`" class="btn btn-outline-primary d-block rounded-pill py-3">蘭姆酒</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/vodka`" class="btn btn-outline-primary d-block rounded-pill py-3">伏特加</RouterLink>
             </div>
 
-            <div class="col-2 text-center">
+            <div class="col-lg-2 col-4 mb-2 text-center">
                 <RouterLink :to="`/wiskey`" class="btn btn-outline-primary d-block rounded-pill py-3">威士忌</RouterLink>
             </div>
         </div>
     </div>
 
     <div class="container my-5 d-flex justify-content-center align-items-center flex-column">
-        <h2 class="fw-bold my-3 fs-2">{{ product.title }}</h2>
+        <h2 class="fw-bold my-lg-3 fs-2">{{ product.title }}</h2>
 
-        <div class="d-flex">
-            <img :src="product.imagesUrl" alt="" class="img-fluid" width="300">
-            <div class="ms-6 fs-4">
-                <p class="border border-dark rounded-pill py-1 px-4 box-shadow text-center"
-                    style="background-color: rgba(34, 152, 255, 1);">{{ product.fav }}</p>
-                <p class="border border-dark rounded-pill py-1 px-4 box-shadow text-center"
-                    style="background-color: rgba(34, 152, 255, 1);">{{ product.alc }}</p>
+        <div class="row offset-lg-3">
+            <div class="col-lg-6 text-center my-2">
+                <img :src="product.imagesUrl" alt="" class="img-fluid" width="300">
+            </div>
+            <div class="col-lg-6 mt-lg-3">
+                <div class="ms-lg-6 fs-4 d-flex justify-content-center d-lg-block">
+                    <p class="border border-dark rounded-pill py-1 px-4 box-shadow text-center me-2 me-lg-0"
+                        style="background-color: rgba(34, 152, 255, 1);">{{ product.fav }}</p>
+                    <p class="border border-dark rounded-pill py-1 px-4 box-shadow text-center"
+                        style="background-color: rgba(34, 152, 255, 1);">{{ product.alc }}</p>
+                </div>
             </div>
         </div>
         <div class="my-5 w-50">
@@ -45,12 +49,12 @@
 
         </div>
         <div class="row my-5">
-            <ul class="col-5">
+            <ul class="col-lg-5 mb-5 mb-lg-0">
                 <h3>作法</h3>
                 <li v-for="step in product.steps">{{ step }}</li>
             </ul>
 
-            <div class="col-7">
+            <div class="col-lg-7">
                 <div class="d-flex border-bottom justify-content-between pb-2">
                     <div class="d-inline">
                         <h3 class="col-8 d-inline">材料(可選購) ${{ product.origin_price }}</h3>
@@ -74,7 +78,7 @@
                                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
                         </div>
-                        <div class="btn btn-outline-primary ms-2" @click="addToCart(product.id)">
+                        <div class="btn btn-outline-primary ms-lg-2 d-flex align-items-center justify-content-center d-lg-inline mt-2" @click="addToCart(product.id)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cart-plus" viewBox="0 0 16 16">
                                 <path
@@ -91,8 +95,9 @@
             </div>
         </div>
     </div>
-    <ul class="row my-5">
-        <h3>相似商品</h3>
+    <div class="container">
+        <h3 class="fw-bold">相似商品</h3>
+        <ul class="row my-5 p-0">
         <li v-for="product in simiProducts" :key="product.id"
             class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
             <div class="card border-0">
@@ -104,7 +109,7 @@
                     <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
 
                     <p>
-                        <RouterLink :to="`${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
+                        <RouterLink :to="`${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none" @click="nextTick">詳細資訊
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -116,6 +121,8 @@
             </div>
         </li>
     </ul>
+    </div>
+
 </template>
 
 <script>
@@ -159,6 +166,9 @@ export default {
                 });
             this.$forceUpdate();
 
+        },
+        nextTick(){
+            window.scrollTo(0, 0)
         },
         ...mapActions(cartStore, ["getCart"]),
         plusProduct() {
@@ -212,7 +222,7 @@ export default {
         },
     },
     watch: {
-        product(){
+        product() {
             this.getProduct();
         }
     },
