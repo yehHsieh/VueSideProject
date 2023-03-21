@@ -50,62 +50,81 @@
 }
 
 
-.top-55{
+.top-55 {
     top: 55% !important;
 }
 
-.left-25{
+.left-25 {
     left: 25% !important;
 }
 
-.end-20{
-    right:20% !important;
+.end-20 {
+    right: 20% !important;
 }
 
-.rotate-45{
+.rotate-45 {
     transform: rotate(45deg);
 }
 
-.opacity-0{
+.opacity-0 {
     opacity: 0;
 }
 
-.bg-orangeLight{
+.bg-orangeLight {
     background-color: #FFFF99;
 }
 
-.radius-100{
+.radius-100 {
     border-radius: 100px;
 }
 
-.box-shadow{
+.box-shadow {
     box-shadow: -5px 6px #000;
 }
 
-.btn-outline-hover{
-    &:hover{
+.btn-outline-hover {
+    &:hover {
         background-color: $secondary;
     }
 }
 
-.bgBtn{
+.bgBtn {
     background-color: $secondary;
 }
 
-.rounded-24{
-    border-radius:24px;
+.rounded-24 {
+    border-radius: 24px;
 }
 
-.hide{
-        width: 50px !important;
-    @include laptop{
+.hide {
+    width: 50px !important;
+
+    @include laptop {
         width: 100px !important;
     }
 }
 
-.start-lg-80{
-    left: 10%;;
-    @include laptop{
+.start-lg-80 {
+    left: 10%;
+    ;
+
+    @include laptop {
         left: 80%;
+    }
+}
+
+// font-size setting
+@each $name,
+$pixel in $grid-breakpoints {
+    @if ($pixel >=map-get($map: $grid-breakpoints, $key: xs)) {
+        @media (min-width: $pixel) {
+
+            @each $num,
+            $value in $font-sizes {
+                .fs-#{$name}-#{$num} {
+                    font-size: $value  !important;
+                }
+            }
+        }
     }
 }

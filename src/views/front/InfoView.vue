@@ -8,11 +8,11 @@
                 <li>訂單完成</li>
             </ul>
             <div class="row">
-                <div class="col-6"></div>
-                <div class="col-6">
-                    <div class="bg-opacity">
-                        <div class="my-5 py-5 row justify-content-center" style="position: relative; z-index: 2;">
-                            <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="submitInf(data.user.name)">
+                <div class="col-lg-6"></div>
+                <div class="col-lg-6">
+                    <div class="bg-opacity p-3 mt-3 p-lg-0 mt-lg-0 p-lg-0">
+                        <div class="my-lg-5 py-lg-5 row justify-content-center" style="position: relative; z-index: 2;">
+                            <v-form ref="form" class="col-md-8" v-slot="{ errors }" @submit="submitInf(data.user.name)">
                                 <h2>訂購人資訊</h2>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>

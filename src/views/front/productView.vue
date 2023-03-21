@@ -78,7 +78,8 @@
                                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
                         </div>
-                        <div class="btn btn-outline-primary ms-lg-2 d-flex align-items-center justify-content-center d-lg-inline mt-2" @click="addToCart(product.id)">
+                        <div class="btn btn-outline-primary ms-lg-2 d-flex align-items-center justify-content-center d-lg-inline mt-2"
+                            @click="addToCart(product.id)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-cart-plus" viewBox="0 0 16 16">
                                 <path
@@ -98,31 +99,32 @@
     <div class="container">
         <h3 class="fw-bold">相似商品</h3>
         <ul class="row my-5 p-0">
-        <li v-for="product in simiProducts" :key="product.id"
-            class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
-            <div class="card border-0">
-                <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
+            <li v-for="product in simiProducts" :key="product.id"
+                class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
+                <div class="card border-0">
+                    <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
+                            width="200"></a>
 
-                <div class="card-body text-center">
-                    <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
-                    <p class="card-text me-2">$ {{ product.origin_price }}</p>
-                    <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
+                    <div class="card-body text-center">
+                        <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
+                        <p class="card-text me-2">$ {{ product.origin_price }}</p>
+                        <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
 
-                    <p>
-                        <RouterLink :to="`${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none" @click="nextTick">詳細資訊
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                            </svg>
-                        </RouterLink>
-                    </p>
+                        <p>
+                            <RouterLink :to="`${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none"
+                                @click="nextTick">詳細資訊
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </RouterLink>
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
     </div>
-
 </template>
 
 <script>
@@ -135,6 +137,7 @@ import { RouterLink } from 'vue-router';
 
 
 export default {
+    props: false,
     data() {
         return {
             product: {},
@@ -147,27 +150,21 @@ export default {
     },
     methods: {
         getProduct() {
-            console.log(this.$route.params)
-            console.log(this.$route)
             const { id } = this.$route.params;
             this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/product/${id}`)
                 .then((res) => {
-                    console.log(res);
                     this.product = res.data.product;
-
                     return this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products?category=${this.product.category}`);
                 })
                 .then((res) => {
-                    console.log(res);
                     this.simiProducts = res.data.products;
                 })
                 .catch((err) => {
                     console.log(err);
                 });
-            this.$forceUpdate();
 
         },
-        nextTick(){
+        nextTick() {
             window.scrollTo(0, 0)
         },
         ...mapActions(cartStore, ["getCart"]),
@@ -228,7 +225,8 @@ export default {
     },
     mounted() {
         this.getProduct();
-        this.num
+        this.num;
     },
+
 }
 </script>

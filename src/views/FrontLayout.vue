@@ -14,7 +14,7 @@
             </button>
            
 
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item  border-base py-lg-2">
                         <router-link to="/" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">首頁

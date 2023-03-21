@@ -38,7 +38,7 @@ const cartStore = defineStore("cart", {
                     this.price = 0
                     for (let i = 0; i < this.carts.length; i++) {
                         this.cartNum += this.carts[i].qty;
-                        this.originPrice  += this.carts[i].product.origin_price;
+                        this.originPrice += this.carts[i].product.origin_price;
                     }
                 })
                 .catch((err) => {
@@ -85,6 +85,7 @@ const cartStore = defineStore("cart", {
                 })
                 .then(() => {
                     router.push('/');
+                    window.scrollTo(0, 0)
                 });
         },
         deleteItem(item) {
