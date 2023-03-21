@@ -13,7 +13,7 @@
         "is_enabled": 1,
         "imageUrl": "",
         "imagesUrl": [
-            "https://static-prod.remymartin.com/app/uploads/2022/08/cocktails-t4-cognac-cocktails-remy-sidecar-2022-01.jpg"
+            "https://cdn.diffords.com/contrib/stock-images/2015/7/53/201526f828f60e77cf60fb5279fcf343794c.jpg"
         ]
     }
 }
@@ -35,7 +35,7 @@
         "is_enabled": 1,
         "imageUrl": "",
         "imagesUrl": [
-            "https://cdn.diffords.com/contrib/stock-images/2023/02/63e4d322e073e.jpg"
+            "https://cdn.diffords.com/contrib/stock-images/2023/02/63e4d325e41a4.jpg"
         ]
     }
 }
@@ -48,7 +48,7 @@
         "price": 250,
         "unit": "杯",
         "description": "史汀格源起於美國的禁酒令時期，是一種非常古老的雞尾酒，如今已經成為雞尾酒中的經典。原本飲用史汀格時
-        不需要加冰，但是現在飲用者都喜歡加入冰塊。這杯雞尾酒能夠炒熱宴含的氣氣• 只要一到
+        不需要加冰，但是現在飲用者都喜歡加入冰塊。這杯雞尾酒能夠炒熱宴含的氣氛，只要一到
         二杯史汀格，就可以讓所有賓客沉淺於歡樂的氣氛中",
         "content": "冰塊,二份白蘭地,一份白薄荷酒",
         "fav": "適中",
@@ -57,7 +57,7 @@
         "is_enabled": 1,
         "imageUrl": "",
         "imagesUrl": [
-            "https://www.cocktailmag.fr/media/k2/items/cache/00e7056ec788d5b42162a6c13dbba43c_M.jpg"
+            "https://cdn.diffords.com/contrib/stock-images/2017/1/05/201757af30bf0f757d4aec14292e19ab3f24.jpg"
         ]
     }
 }
@@ -237,7 +237,7 @@
         "is_enabled": 1,
         "imageUrl": "",
         "imagesUrl": [
-            "https://media.gq.com.tw/photos/5eb4dc2e99aaac124af13fa7/16:9/w_1920%2Cc_limit/_C2T6864.jpg"
+            "https://images.absolutdrinks.com/drink-images/Raw/Absolut/c78c3348-ae2a-4982-aa63-4b25e7ec732b.jpg?imwidth=500"
         ]
     }
 }
