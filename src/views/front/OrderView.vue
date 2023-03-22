@@ -1,5 +1,5 @@
 <template>
-    <div style="background-image: url(src/assets/img/inf-pexels-pixabay-37925.jpg); background-position: center;" class="p-3">
+    <div :style="{backgroundImage: `url(${bgImg})`, backgroundPosition: 'center'}" class="p-3">
         <div class="container p-3 "
             style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(8px);border-radius:24px;">
             <v-form @submit="addToOrder">
@@ -44,11 +44,13 @@
 <script>
 import { mapState, mapActions } from "pinia";
 import cartStore from '../../stores/cart'
+import bgImg from '@/assets/img/inf-pexels-pixabay-37925.jpg'
 
 export default {
     data() {
         return {
             order: [],
+            bgImg:bgImg
         }
     },
     computed: {

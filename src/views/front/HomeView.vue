@@ -1,7 +1,7 @@
 <template>
   <main>
     <div
-      style="background-image:url(src/assets/img/pexels-picjumbocom-225236.jpg); height: 100vh;width: 100%; background-position: center; background-size: cover">
+    :style="{ backgroundImage: `url(${img})`, height: '100vh', width: '100%', backgroundPosition: 'center', backgroundSize: 'cover' }">
       <h2 class="position-relative" style="height:100vh;"><RouterLink to="/AllProducts"
           class="position-absolute end-20 top-55 text-center text-dark text-decoration-none p-3"
           style="background:rgba(255, 255, 255, 0.3);backdrop-filter:blur(2px);border-radius:24px;">
@@ -38,13 +38,13 @@
     <!-- two place -->
     <div class="d-flex">
       <div class="d-flex align-items-center justify-content-center"
-        style="background-image:url(src/assets/img/home.jpg); height: 50vh; width: 50%; background-position: center; background-size: cover">
+        :style="{backgroundImage:`url(${imgHome})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover'}">
         <RouterLink to="/AllProducts" class="text-white text-decoration-none fs-2 p-3"
           style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">家裡喝
         </RouterLink>
       </div>
       <div class="d-flex align-items-center justify-content-center"
-        style="background-image:url(src/assets/img/alexander-kovacs-spZexiKfZTs-unsplash.jpg); height: 50vh; width: 50%; background-position: center; background-size: cover">
+      :style="{backgroundImage:`url(${imgBar})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover'}">
         <RouterLink to="/Custom" class=" text-black text-decoration-none fs-2 p-3"
           style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">酒吧喝
         </RouterLink>
@@ -192,6 +192,9 @@
 </template>
 
 <script>
+import bgImag from '@/assets/img/pexels-picjumbocom-225236.jpg';
+import imgHome from '@/assets/img/home.jpg';
+import imgBar from '@/assets/img/alexander-kovacs-spZexiKfZTs-unsplash.jpg';
 import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -199,6 +202,13 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
 export default {
+  data(){
+    return{
+      img: bgImag,
+      imgHome: imgHome,
+      imgBar: imgBar
+    }
+  },
   components: {
     Swiper,
     SwiperSlide,

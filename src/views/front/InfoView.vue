@@ -1,6 +1,6 @@
 <template>
     <div
-        style="background-image: url(src/assets/img/inf-pexels-pixabay-37925.jpg); background-position: center; background-size: cover;">
+        :style="{backgroundImage: `url(${bgImg})`, backgroundPosition: 'center', backgroundSize: 'cover'}">
         <div class="container py-5">
             <ul class="progresses m-0 d-flex">
                 <li>商品確認</li>
@@ -76,6 +76,7 @@
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import { mapActions, mapState } from "pinia";
 import cartStore from '../../stores/cart'
+import bgImg from '@/assets/img/inf-pexels-pixabay-37925.jpg'
 
 export default {
     data() {
@@ -87,6 +88,7 @@ export default {
                 "address": ""
             },
             "message": "",
+            bgImg:bgImg
         }
     },
     computed: {
