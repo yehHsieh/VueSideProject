@@ -5,7 +5,7 @@
         <li>訂購人資訊</li>
         <li>訂單完成</li>
     </ul>
-    <div class="container mb-5 my-lg-5 p-3 bg-secondary">
+    <div class="container mb-5 my-lg-5 p-3 bg-secondary" style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(8px);border-radius:24px;">
         <div class="d-lg-flex justify-content-between">
             <h2>商品確認</h2>
             <div class="d-flex justify-content-between">

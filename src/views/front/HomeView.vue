@@ -1,8 +1,9 @@
 <template>
   <main>
     <div
-    :style="{ backgroundImage: `url(${img})`, height: '100vh', width: '100%', backgroundPosition: 'center', backgroundSize: 'cover' }">
-      <h2 class="position-relative" style="height:100vh;"><RouterLink to="/AllProducts"
+      :style="{ backgroundImage: `url(${img})`, height: '100vh', width: '100%', backgroundPosition: 'center', backgroundSize: 'cover' }">
+      <h2 class="position-relative" style="height:100vh;">
+        <RouterLink to="/AllProducts"
           class="position-absolute end-20 top-55 text-center text-dark text-decoration-none p-3"
           style="background:rgba(255, 255, 255, 0.3);backdrop-filter:blur(2px);border-radius:24px;">
           Gamara Bar
@@ -38,13 +39,13 @@
     <!-- two place -->
     <div class="d-flex">
       <div class="d-flex align-items-center justify-content-center"
-        :style="{backgroundImage:`url(${imgHome})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover'}">
+        :style="{ backgroundImage: `url(${imgHome})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover' }">
         <RouterLink to="/AllProducts" class="text-white text-decoration-none fs-2 p-3"
           style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">家裡喝
         </RouterLink>
       </div>
       <div class="d-flex align-items-center justify-content-center"
-      :style="{backgroundImage:`url(${imgBar})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover'}">
+        :style="{ backgroundImage: `url(${imgBar})`, height: '50vh', width: '50%', backgroundPosition: 'center', backgroundSize: 'cover' }">
         <RouterLink to="/Custom" class=" text-black text-decoration-none fs-2 p-3"
           style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(2px);border-radius:24px;">酒吧喝
         </RouterLink>
@@ -127,13 +128,13 @@
           <swiper-slide>
             <RouterLink to="/wiskey" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-              <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
-              <div class="card-body bg-light text-center p-4 text-black">
-                <h5 class="card-title">威士忌</h5>
-                <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
-                </p>
+                <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
+                <div class="card-body bg-light text-center p-4 text-black">
+                  <h5 class="card-title">威士忌</h5>
+                  <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成
+                  </p>
+                </div>
               </div>
-            </div>
             </RouterLink>
           </swiper-slide>
         </swiper>
@@ -165,6 +166,23 @@
     <!-- <div class="bg-primary">
       DRINK WHEREEVER
     </div> -->
+
+    <div class="bg-secondary">
+      <div class="container py-5">
+        <h2 class="fw-bold text-center text-lg-start">現場演出</h2>
+        <div class="d-flex align-items-center justify-content-center flex-column">
+          <video width="520" height="340" ref="myVideo" class=""
+            data-setup='{ "autoplay": true, "controls": true, "poster": "", "preload": "auto" }'>
+            <source src="../../assets/img/guitarist-1651.mp4" type="video/mp4">
+          </video>
+          <div class="mt-3">
+            <button @click="play()" class="btn btn-outline-primary me-2">Play</button>
+            <button @click="pause()" class="btn btn-outline-primary">Pause</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- bar info -->
     <div class="container my-5">
@@ -202,8 +220,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 
 export default {
-  data(){
-    return{
+  data() {
+    return {
       img: bgImag,
       imgHome: imgHome,
       imgBar: imgBar
@@ -224,6 +242,14 @@ export default {
       onSwiper,
       onSlideChange,
     };
+  },
+  methods: {
+    play() {
+      this.$refs.myVideo.play(); // 播放
+    },
+    pause() {
+      this.$refs.myVideo.pause(); // 暫停
+    },
   },
 };
 </script>
