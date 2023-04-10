@@ -50,6 +50,8 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import VueFilterDateFormat from '@vuejs-community/vue-filter-date-format';
 
 
+import VueAos from 'vue-aos'
+
 const app = createApp(App)
 
 app.use(createPinia())
@@ -64,6 +66,9 @@ app.component('VField', Field)
 app.component('VErrorMessage', ErrorMessage)
 
 // app.use(VueFilterDateFormat);
+
+app.use(VueAos)
+
 
 
 app.mount('#app')

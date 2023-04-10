@@ -32,9 +32,9 @@
     </div>
 
     <!-- light show -->
-    <!-- <div class="bg-primary">
+    <div class="bg-primary" v-vue-aos="{animationClass:'fadeIn animated'}">
       DRINK WHEREEVER
-    </div> -->
+    </div>
 
     <!-- two place -->
     <div class="d-flex">

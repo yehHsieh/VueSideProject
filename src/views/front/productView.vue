@@ -32,7 +32,7 @@
 
         <div class="row offset-lg-3">
             <div class="col-lg-6 text-center my-2">
-                <img :src="product.imagesUrl" alt="" class="img-fluid" width="300">
+                <img :src="product.imagesUrl" alt="" class="img-fluid img-rwd">
             </div>
             <div class="col-lg-6 mt-lg-3">
                 <div class="ms-lg-6 fs-4 d-flex justify-content-center d-lg-block">
@@ -218,11 +218,11 @@ export default {
 
         },
     },
-    watch: {
-        product() {
-            this.getProduct();
-        }
-    },
+    // watch: {
+    //     product() {
+    //         this.getProduct();
+    //     }
+    // },
     mounted() {
         this.getProduct();
         this.num;

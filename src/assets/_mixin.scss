@@ -38,3 +38,10 @@
         display: none;
     }
 }
+
+.img-rwd {
+    width: 200px;
+    @include laptop {
+       width: 300px;
+    }
+}
