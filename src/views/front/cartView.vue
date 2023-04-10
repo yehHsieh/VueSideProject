@@ -1,5 +1,5 @@
 <template>
-    <Loading :active="isLoading" :z-index="1060"></Loading>
+    <Loading :active="isLoading" :z-index="1060"/>
     <ul class="progresses d-flex py-3 container">
         <li class="active">商品確認</li>
         <li>訂購人資訊</li>

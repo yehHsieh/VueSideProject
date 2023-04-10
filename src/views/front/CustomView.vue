@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" :z-index="1060"></Loading>
+  <Loading :active="isLoading" :z-index="1060"/>
   <div class="container">
     <div class="d-lg-flex justify-content-between my-5">
       <h2 class="fw-bold">挑出自己偏好的調酒吧</h2>
@@ -117,7 +117,7 @@
             </div>
           </div>
         </li>
-        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+        <Pagination :pages="pagination" @emit-pages="getProducts"/>
       </ul>
     </div>
 

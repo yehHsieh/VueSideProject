@@ -131,33 +131,7 @@ export default {
                 alert(err.response.data.message);
             })
         },
-        // updateProduct(item) {
-        //     // console.log(item)
-        //     this.tempProduct = item;
-        //     let api = `${import.meta.env.VITE_APP_URL}api/${import.meta.env.VITE_APP_PATH}/admin/product`;
-        //     this.isLoading = true;
-        //     let httpMethod = 'post';
-        //     let status = '新增產品';
-        //     if (!this.isNew) {
-        //         console.log(this.tempProduct)
-        //         api = `${import.meta.env.VITE_APP_URL}api/${import.meta.env.VITE_APP_PATH}/admin/product/${this.tempProduct.id}`;
-        //         httpMethod = 'put';
-        //         status = '更新產品';
-        //         console.log(this.tempProduct)
-        //         this.products = res.data.products;
-        //         this.pagination = res.data.pagination;
-        //     }
-        //     const productComponent = this.$refs.productModal;
-        //     this.$http[httpMethod](api, { data: this.tempProduct }).then((response) => {
-        //         this.isLoading = false;
-        //         // this.$httpMessageState(response, status);
-        //         productComponent.hideModal();
-        //         this.getProducts(this.currentPage);
-        //     }).catch((error) => {
-        //         this.isLoading = false;
-        //         // this.$httpMessageState(error.response, status);
-        //     });
-        // },
+       
         delProduct(delModal) {
             const delComponent = this.$refs.delModal;
             this.$http.delete(`${VITE_APP_URL}api/${VITE_APP_PATH}/admin/product/${this.tempProduct.id}`)

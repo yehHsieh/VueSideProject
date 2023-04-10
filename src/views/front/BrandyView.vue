@@ -41,7 +41,7 @@
                 </div>
             </div>
         </li>
-        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+        <Pagination :pages="pagination" @emit-pages="getProducts"/>
     </ul>
 </template>
 

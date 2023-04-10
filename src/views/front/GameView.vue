@@ -1,5 +1,5 @@
 <template>
-    <Loading :active="isLoading" :z-index="1060"></Loading>
+    <Loading :active="isLoading" :z-index="1060"/>
     <div class="container">
         <div class="d-lg-flex justify-content-between my-5">
             <h2 class="fw-bold">今日調酒</h2>

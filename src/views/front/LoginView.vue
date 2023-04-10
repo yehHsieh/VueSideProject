@@ -24,7 +24,6 @@
             </div>
         </div>
     </div>
-    <!-- <vue-toastr ref="toastr"></vue-toastr> -->
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <Loading :active="isLoading" :z-index="1060"></Loading>
+    <Loading :active="isLoading" :z-index="1060"/>
     <ul class="row my-5">
         <li v-for="(product, inde) in products" :key="product.id"
             class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </li>
-        <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+        <Pagination :pages="pagination" @emit-pages="getProducts"/>
     </ul>
 </template>
 

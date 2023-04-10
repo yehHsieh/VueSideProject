@@ -22,16 +22,16 @@
                 <ul class="navbar-nav text-center fw-bold">
                     
                     <li class="nav-item  border-base py-lg-2 me-2">
-                        <router-link to="/admin/AdminOrders">後臺訂單</router-link> 
+                        <RouterLink to="/admin/AdminOrders">後臺訂單</RouterLink> 
 
                     </li>
 
                     <li class="nav-item  border-base py-lg-2 me-2">
-                        <router-link to="/admin/AdminProducts">後臺產品</router-link> 
+                        <RouterLink to="/admin/AdminProducts">後臺產品</RouterLink> 
 
                     </li>
                     <li class="nav-item  border-base py-lg-2 me-2">
-                        <router-link to="/">回前台</router-link> 
+                        <RouterLink to="/">回前台</RouterLink> 
                     </li>
                     <li class="nav-item  border-base py-lg-2 me-2">
                         <a href="#" @click.prevent="logout">登出</a>
@@ -46,9 +46,9 @@
     <h1 class="mb-5">這裡是後台頁面</h1>
 
 
-    <!-- <router-link to="/admin">後台首頁</router-link> -->
+    <!-- <RouterLink to="/admin">後台首頁</RouterLink> -->
     <hr />
-    <router-view></router-view>
+    <RouterView/>
 </template>
   
 <script>
@@ -76,7 +76,6 @@ export default {
             this.$http.defaults.headers.common.Authorization = token;
             this.$http.post(`${VITE_APP_URL}v2/api/user/check`)
                 .then((res) => {
-                    // this.getData();
                     if (!res.data.success) {
                         alert('請先登入')
                         this.$router.push('/Login')
