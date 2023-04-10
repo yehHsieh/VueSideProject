@@ -25,7 +25,7 @@
                     <li class="col-2 px-0">小計</li>
                 </ul>
                 <ul class="row text-center py-lg-5 mb-3 py-3 align-items-center m-0 fw-bold ps-0 fs-lg-5 fs-md-6 fs-xs-7" v-for="cart in carts" :key="cart.id">
-                    <li class="col-2"><img :src="cart.product.imagesUrl" alt="" style="width: 100px;"></li>
+                    <li class="col-2"><img :src="cart.product.imagesUrl" alt="productImg" style="width: 100px;"></li>
                     <li class="col-4">{{ cart.product.title }}</li>
                     <li class="col-2">{{ cart.qty }}</li>
                     <li class="col-2 p-0">${{ cart.product.price }}</li>

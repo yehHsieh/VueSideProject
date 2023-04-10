@@ -19,17 +19,17 @@ const routes = [
       {
         path: 'product/:id',
         name: 'Product',
-        component: () => import('../views/front/productView.vue'),
+        component: () => import('../views/front/ProductView.vue'),
       },
       {
         path: 'products',
         name: 'Products',
-        component: () => import('../views/front/productsView.vue'),
+        component: () => import('../views/front/ProductsView.vue'),
         children:[
           {
             path: '/AllProducts',
             name: 'AllProducts',
-            component: () => import('../views/front/categoryView.vue'),
+            component: () => import('../views/front/CategoryView.vue'),
           },
           {
             path: '/brandy',
@@ -61,7 +61,7 @@ const routes = [
       {
         path: 'cart',
         name: 'Cart',
-        component: () => import('../views/front/cartView.vue'),
+        component: () => import('../views/front/CartView.vue'),
       },
       {
         path: 'info',

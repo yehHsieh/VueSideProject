@@ -34,7 +34,7 @@
       <li v-for="product in tempProducts" :key="product.id"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
         <div class="card border-0">
-          <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
+          <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="productImg" width="200"></a>
           <div class="card-body text-center">
             <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
             <p class="card-text me-2">$ {{ product.origin_price }}</p>
@@ -56,7 +56,7 @@
       <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
         <div class="card border-0" v-if="finalProducts.length > 0">
-          <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
+          <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="productImg" width="200"></a>
           <div class="card-body text-center">
             <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
             <p class="card-text me-2">$ {{ product.origin_price }}</p>
@@ -85,7 +85,7 @@
         <li v-for="(product, inde) in favoriteItems" :key="product.id"
           class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
           <div class="card border-0">
-            <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt=""
+            <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt="productImg"
                 width="200"></a>
             <div class="card-body text-center">
               <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>

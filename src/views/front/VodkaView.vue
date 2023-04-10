@@ -4,7 +4,7 @@
         <li v-for="(product, inde) in products" :key="product.id"
             class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
             <div class="card border-0">
-                <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt=""
+                <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt="productImg"
                         width="200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-heart position-absolute top-10 end-0" viewBox="0 0 16 16" @click="addFavorite(inde)"

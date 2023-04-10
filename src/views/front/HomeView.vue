@@ -75,7 +75,7 @@
           <swiper-slide>
             <RouterLink to="/brandy" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-                <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="...">
+                <img src="../../assets/img/brandy(product2).jpg" class="card-img-top" alt="brandy">
                 <div class="card-body bg-light text-center p-4 text-black">
                   <h5 class="card-title">白蘭地</h5>
                   <p class="card-text">白蘭地是葡萄酒蒸餾而成的烈性暖酒
@@ -89,7 +89,7 @@
           <swiper-slide>
             <RouterLink to="/gin" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-                <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="...">
+                <img src="../../assets/img/gin(product2).jpg" class="card-img-top" alt="gin">
                 <div class="card-body bg-light text-center p-4 text-black">
                   <h5 class="card-title">琴酒</h5>
                   <p class="card-text">琴酒是最常用來調製雞尾酒的基酒
@@ -102,7 +102,7 @@
           <swiper-slide>
             <RouterLink to="/rum" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-                <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="...">
+                <img src="../../assets/img/rum(product2).jpg" class="card-img-top" alt="rum">
                 <div class="card-body bg-light text-center p-4 text-black">
                   <h5 class="card-title">蘭姆酒</h5>
                   <p class="card-text">蘭姆酒是一種味道醇厚且芳香的酒類
@@ -115,7 +115,7 @@
           <swiper-slide>
             <RouterLink to="/vodka" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-                <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="...">
+                <img src="../../assets/img/vodka(product2).jpg" class="card-img-top" alt="vodka">
                 <div class="card-body bg-light text-center p-4 text-black">
                   <h5 class="card-title">伏特加</h5>
                   <p class="card-text">vodka意旨少量的水,由許多農作物蒸餾而成
@@ -128,7 +128,7 @@
           <swiper-slide>
             <RouterLink to="/wiskey" class="text-decoration-none">
               <div class="card rounded-24" style="width: 16rem;">
-                <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="...">
+                <img src="../../assets/img/whisky(product2).jpg" class="card-img-top" alt="wiskey">
                 <div class="card-body bg-light text-center p-4 text-black">
                   <h5 class="card-title">威士忌</h5>
                   <p class="card-text">由發酵的發芽穀物經過蒸餾釀造而成

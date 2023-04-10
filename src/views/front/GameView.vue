@@ -17,23 +17,23 @@
                 <ul class="row mt-3 mb-5 p-0 offset-lg-2">
                     <li class="col-lg-2 col-6 text-center"><a href="" class="d-block py-3 btn-outline-hover"
                             @click.prevent="getTypeProducts('brandy')" v-bind:class="{ bgBtn: isActive[0] }"
-                            style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="" style="width: 100px;"
+                            style="border-radius: 24px;"><img src="../../assets/img/brandy.png" alt="brandy" style="width: 100px;"
                                 class="image-contain"></a></li>
                     <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
                             @click.prevent="getTypeProducts('gin')" v-bind:class="{ bgBtn: isActive[1] }"
-                            style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="" style="width: 100px;"
+                            style="border-radius: 24px;"><img src="../../assets/img/gin.png" alt="gin" style="width: 100px;"
                                 class="image-contain"></a></li>
                     <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
                             @click.prevent="getTypeProducts('rum')" v-bind:class="{ bgBtn: isActive[2] }"
-                            style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="" style="width: 100px;"
+                            style="border-radius: 24px;"><img src="../../assets/img/rum.png" alt="rum" style="width: 100px;"
                                 class="image-contain"></a></li>
                     <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
                             @click.prevent="getTypeProducts('vodka')" v-bind:class="{ bgBtn: isActive[3] }"
-                            style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="" style="width: 100px;"
+                            style="border-radius: 24px;"><img src="../../assets/img/vodka.png" alt="vodka" style="width: 100px;"
                                 class="image-contain"></a></li>
-                    <li class="col-lg-2 col-6 text-center "><a href="" class=" d-block py-3 btn-outline-hover"
+                    <li class="col-lg-2 col-6 text-center "><a class=" d-block py-3 btn-outline-hover"
                             @click.prevent="getTypeProducts('wiskey')" v-bind:class="{ bgBtn: isActive[4] }"
-                            style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="" style="width: 100px;"
+                            style="border-radius: 24px;"><img src="../../assets/img/whisky.png" alt="wiskey" style="width: 100px;"
                                 class="image-contain"></a></li>
                 </ul>
                 <h3 class="my-3">步驟二: 心情顏色</h3>
@@ -61,7 +61,7 @@
                     <li v-if="finalProducts.length == 0 && showNum" v-for="product in tempProducts" :key="product.id"
                         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                         <div class="card border-0">
-                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
+                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="productImg"
                                     width="200"></a>
                             <div class="card-body text-center">
                                 <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
@@ -82,7 +82,7 @@
                     <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
                         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                         <div class="card border-0" v-if="finalProducts.length > 0">
-                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
+                            <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="productImg"
                                     width="200"></a>
                             <div class="card-body text-center">
                                 <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>

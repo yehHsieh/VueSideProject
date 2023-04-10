@@ -4,8 +4,7 @@
         <li v-for="(product, inde) in products" :key="product.id"
             class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
             <div class="card border-0">
-
-                <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt=""
+                <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt="productImg"
                         width="200">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-heart position-absolute top-10 end-0" viewBox="0 0 16 16" @click="addFavorite(inde)"
@@ -24,7 +23,6 @@
                 <div class="card-body text-center">
                     <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
                     <p class="card-text me-2">$ {{ product.origin_price }}</p>
-                    <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
                     <p>
                         <RouterLink :to="`/product/${product.id}`"
                             class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊 <svg
