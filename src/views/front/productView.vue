@@ -26,7 +26,6 @@
             </div>
         </div>
     </div>
-
     <div class="container my-5 d-flex justify-content-center align-items-center flex-column">
         <h2 class="fw-bold my-lg-3 fs-2">{{ product.title }}</h2>
 
@@ -45,8 +44,6 @@
         </div>
         <div class="my-5 w-50">
             {{ product.description }}
-
-
         </div>
         <div class="row my-5">
             <ul class="col-lg-5 mb-5 mb-lg-0">
@@ -128,13 +125,11 @@
 </template>
 
 <script>
-
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import { mapState, mapActions } from "pinia";
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import Swal from 'sweetalert2';
 import { RouterLink } from 'vue-router';
-
 
 export default {
     props: false,
@@ -162,7 +157,6 @@ export default {
                 .catch((err) => {
                     console.log(err);
                 });
-
         },
         nextTick() {
             window.scrollTo(0, 0)
@@ -181,7 +175,6 @@ export default {
                 "product_id": id,
                 "qty": this.num
             }
-
             this.$http.post(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/cart`, { data })
                 .then((res) => {
                     console.log(res)
@@ -215,7 +208,6 @@ export default {
                     Swal.fire('刪除成功!', '', 'success')
                 }
             })
-
         },
     },
     // watch: {
@@ -227,6 +219,5 @@ export default {
         this.getProduct();
         this.num;
     },
-
 }
 </script>

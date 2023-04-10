@@ -43,7 +43,7 @@
 
 <script>
 import { mapState, mapActions } from "pinia";
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import bgImg from '@/assets/img/inf-pexels-pixabay-37925.jpg'
 
 export default {

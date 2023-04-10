@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" :z-index="1060"/>
+  <Loading :active="isLoading" :z-index="1060" />
   <div class="container">
     <div class="d-lg-flex justify-content-between my-5">
       <h2 class="fw-bold">挑出自己偏好的調酒吧</h2>
@@ -12,7 +12,6 @@
 
       </RouterLink>
     </div>
-
     <h3 class="mb-3 mt-5">步驟一: 選風味</h3>
     <ul class="row mt-3 mb-5 p-0">
       <li class="col-lg-2 col-md-4 text-center my-1"><a href="" class="btn btn-outline-fav d-block rounded-pill py-3"
@@ -31,20 +30,15 @@
       <li class="col-lg-2 col-md-4 text-center my-1"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
           @click.prevent="getAlcProducts('40')">&gt 40度</a></li>
     </ul>
-
-
-
     <ul class="row my-5 p-0" v-if="tempProducts.length > 0 && showNum">
       <li v-for="product in tempProducts" :key="product.id"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
         <div class="card border-0">
           <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
-
           <div class="card-body text-center">
             <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
             <p class="card-text me-2">$ {{ product.origin_price }}</p>
             <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
-
             <p>
               <RouterLink :to="`/product/${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -58,18 +52,15 @@
         </div>
       </li>
     </ul>
-
-<ul class="row my-5 p-0" v-if="finalProducts.length > 0">
+    <ul class="row my-5 p-0" v-if="finalProducts.length > 0">
       <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
         <div class="card border-0" v-if="finalProducts.length > 0">
           <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt="" width="200"></a>
-
           <div class="card-body text-center">
             <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
             <p class="card-text me-2">$ {{ product.origin_price }}</p>
             <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
-
             <p>
               <RouterLink :to="`/product/${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -83,11 +74,9 @@
         </div>
       </li>
     </ul>
-    <p v-if="!showNum &&  finalProducts.length==0">無符合條件商品</p>
-    <p v-if="tempProducts.length==0" style="height: 50vh;">尚未選擇喜好</p>
-
+    <p v-if="!showNum && finalProducts.length == 0">無符合條件商品</p>
+    <p v-if="tempProducts.length == 0" style="height: 50vh;">尚未選擇喜好</p>
   </div>
-
   <div class="bg-secondary py-3 mb-2">
     <div class="container">
       <h3 class="fw-bold">我的收藏</h3>
@@ -96,15 +85,12 @@
         <li v-for="(product, inde) in favoriteItems" :key="product.id"
           class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
           <div class="card border-0">
-
             <a style="cursor: pointer;" class="overflow-hidden position-relative"><img :src="product.imagesUrl" alt=""
                 width="200"></a>
-
             <div class="card-body text-center">
               <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
               <p class="card-text me-2">$ {{ product.origin_price }}</p>
               <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
-
               <p>
                 <RouterLink :to="`/product/${product.id}`" class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -117,17 +103,16 @@
             </div>
           </div>
         </li>
-        <Pagination :pages="pagination" @emit-pages="getProducts"/>
+        <Pagination :pages="pagination" @emit-pages="getProducts" />
       </ul>
     </div>
-
   </div>
 </template>
 
 <script >
 import Swal from 'sweetalert2'
 import { RouterLink } from 'vue-router';
-import favoritesStore from '../../stores/favorites'
+import favoritesStore from '@/stores/favorites'
 import { mapState } from 'pinia';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
@@ -161,28 +146,28 @@ export default {
       this.isActive2 = false
       this.isActive3 = false
       this.showNum = true,
-      this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
-        .then((res) => {
-          this.products = res.data.products;
-          this.tempProducts = []
-          this.tempFav = fav
-          this.products.forEach(i => {
-            if (this.tempFav == "甜" && i.fav == "甜") {
-              this.tempProducts.push(i);
-              this.isActive1 = true
-            }
-            if (this.tempFav == "適中" && i.fav == "適中") {
-              this.tempProducts.push(i);
-              this.isActive2 = true
+        this.$http.get(`${VITE_APP_URL}v2/api/${VITE_APP_PATH}/products/all`)
+          .then((res) => {
+            this.products = res.data.products;
+            this.tempProducts = []
+            this.tempFav = fav
+            this.products.forEach(i => {
+              if (this.tempFav == "甜" && i.fav == "甜") {
+                this.tempProducts.push(i);
+                this.isActive1 = true
+              }
+              if (this.tempFav == "適中" && i.fav == "適中") {
+                this.tempProducts.push(i);
+                this.isActive2 = true
 
-            }
-            if (this.tempFav == "不甜" && i.fav == "不甜") {
-              this.tempProducts.push(i);
-              this.isActive3 = true
-            }
+              }
+              if (this.tempFav == "不甜" && i.fav == "不甜") {
+                this.tempProducts.push(i);
+                this.isActive3 = true
+              }
+            })
+            this.isLoading = false;
           })
-          this.isLoading = false;
-        })
     },
 
     getAlcProducts(alc) {
@@ -199,9 +184,9 @@ export default {
       this.tempProducts.forEach(i => {
         if (this.tempAlc == '20' && i.alc < 20) {
           this.finalProducts.push(i);
-console.log(i)
-console.log(this.finalProducts)
-console.log(this.finalProducts.length)
+          console.log(i)
+          console.log(this.finalProducts)
+          console.log(this.finalProducts.length)
         }
         if (this.tempAlc == '30' && i.alc >= 20 && i.alc < 40) {
           this.finalProducts.push(i);

@@ -21,7 +21,6 @@
                                         placeholder="請輸入 Email" v-model.trim="data.user.email"></v-field>
                                     <error-message name="email" class="invalid-feedback"></error-message>
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="name" class="form-label">收件人姓名</label>
                                     <v-field id="name" name="姓名" type="text" class="form-control"
@@ -29,7 +28,6 @@
                                         v-model.trim="data.user.name"></v-field>
                                     <error-message name="姓名" class="invalid-feedback"></error-message>
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="tel" class="form-label">收件人電話</label>
                                     <v-field id="tel" name="電話" type="text" class="form-control"
@@ -37,7 +35,6 @@
                                         rules="required|numeric|min:8|digits:8" v-model.trim="data.user.tel"></v-field>
                                     <error-message name="電話" class="invalid-feedback"></error-message>
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="address" class="form-label">收件人地址</label>
                                     <v-field id="address" name="地址" type="text" class="form-control"
@@ -45,7 +42,6 @@
                                         v-model.trim="data.user.address"></v-field>
                                     <error-message name="地址" class="invalid-feedback"></error-message>
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="message" class="form-label">備註:</label>
                                     <textarea id="message" class="form-control" cols="30" rows="10"
@@ -55,11 +51,6 @@
                                     <RouterLink :to="`/cart`"
                                         class="btn btn-outline-dark me-3 rounded-pill py-1 px-4 text-center">上一步
                                     </RouterLink>
-                                    <!-- <button type="submit"
-                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">送出訂單</button> -->
-                                    <!-- <RouterLink :to="`/order`"
-                                        class="btn btn-danger rounded-pill py-1 px-4 text-center">確認
-                                    </RouterLink> -->
                                     <button type="submit"
                                         class="btn btn-danger rounded-pill py-1 px-4 text-center">確認</button>
                                 </div>
@@ -75,7 +66,7 @@
 <script>
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import { mapActions, mapState } from "pinia";
-import cartStore from '../../stores/cart'
+import cartStore from '@/stores/cart'
 import bgImg from '@/assets/img/inf-pexels-pixabay-37925.jpg'
 
 export default {
@@ -111,8 +102,6 @@ export default {
                     this.$router.push('/order')
                 })
         },
-
-
     },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <Loading :active="isLoading" :z-index="1060"/>
+    <Loading :active="isLoading" :z-index="1060" />
     <div class="container">
         <div class="d-lg-flex justify-content-between my-5">
             <h2 class="fw-bold">今日調酒</h2>
@@ -11,7 +11,6 @@
                     </svg></p>
             </RouterLink>
         </div>
-
         <div class="row">
             <div class="col-lg-6">
                 <h3 class="mb-3 mt-5">步驟一: 選基底</h3>
@@ -40,39 +39,33 @@
                 <h3 class="my-3">步驟二: 心情顏色</h3>
                 <ul class="row mt-5 mb-5 p-0">
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                                      height: 100px;
-                                                      background-color: rgba(234, 213, 21, 1);"
+                                                          height: 100px;
+                                                          background-color: rgba(234, 213, 21, 1);"
                             @click.prevent="getRandom(products, 'yellow')"></a>
                         <p>醉</p>
                     </li>
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                                      height: 100px;
-                                                      background-color: rgba(215, 11, 35, 1);"
+                                                          height: 100px;
+                                                          background-color: rgba(215, 11, 35, 1);"
                             @click.prevent="getRandom(products, 'red')"></a>
                         <p>很醉</p>
                     </li>
                     <li class="col-4 text-center"><a href="" class="btn rounded-circle " style="width: 100px;
-                                                      height:  100px;
-                                                      background-color: rgba(17, 125, 253, 1);"
+                                                          height:  100px;
+                                                          background-color: rgba(17, 125, 253, 1);"
                             @click.prevent="getRandom(products, 'blue')"></a>
                         <p>不能再醉了</p>
                     </li>
                 </ul>
-
-
-
                 <ul class="row my-5" v-if="products.length > 0">
                     <li v-if="finalProducts.length == 0 && showNum" v-for="product in tempProducts" :key="product.id"
                         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                         <div class="card border-0">
                             <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
                                     width="200"></a>
-
                             <div class="card-body text-center">
                                 <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
                                 <p class="card-text me-2">$ {{ product.origin_price }}</p>
-                                <!-- <p class="card-text text-secondary text-dark"><del>$ {{ product.origin_price }}</del></p> -->
-
                                 <p>
                                     <RouterLink :to="`/product/${product.id}`"
                                         class="text-dark fw-bold bottom-line text-decoration-none">詳細資訊
@@ -86,13 +79,11 @@
                             </div>
                         </div>
                     </li>
-
                     <li v-if="finalProducts.length > 0" v-for="product in finalProducts" :key="`${product.id}1`"
                         class="col-12 col-md-6 col-lg-4 mb-4 d-flex justify-content-center">
                         <div class="card border-0" v-if="finalProducts.length > 0">
                             <a style="cursor: pointer;" class="overflow-hidden"><img :src="product.imagesUrl" alt=""
                                     width="200"></a>
-
                             <div class="card-body text-center">
                                 <h3 class="card-title fs-4 mt-3">{{ product.title }}</h3>
                                 <p class="card-text me-2">$ {{ product.origin_price }}</p>

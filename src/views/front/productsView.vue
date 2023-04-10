@@ -34,8 +34,7 @@
 <script>
 import { RouterView, RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
-import favoritesStore from '../../stores/favorites'
-import Pagination from '../../components/Pagination.vue';
+import favoritesStore from '@/stores/favorites'
 import { mapActions, mapState } from 'pinia';
 
 export default {

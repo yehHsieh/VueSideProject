@@ -45,7 +45,6 @@
                                 </select>
                             </div>
                         </td>
-
                         <td v-if="allDiscount"><del>{{ item.product.origin_price }}</del> {{ item.product.price }}</td>
                         <td v-else>{{ item.product.origin_price }}</td>
 
@@ -61,7 +60,6 @@
                 </template>
             </tbody>
             <tfoot>
-
                 <tr v-if="couponOn">
                     <td colspan="4" class="text-end">折扣金額:</td>
                     <td class="text-end">{{ total - final_total }}</td>
@@ -72,8 +70,6 @@
                 </tr>
                 <tr v-else>
                 </tr>
-
-
                 <tr v-if="couponOn || allDiscount">
                     <td colspan="4" class="text-end text-success">最後金額:</td>
                     <td class="text-end text-success">{{ final_total }}</td>
@@ -93,10 +89,7 @@
             </tfoot>
         </table>
 
-
-
         <!-- phoneView -->
-
         <div class="table align-middle mt-3 block-rwd-none">
             <ul v-for="item in carts" :key="item.id" class="p-0">
                 <li class="border-bottom">
@@ -108,7 +101,6 @@
                                 x
                             </button>
                         </div>
-
                         <div class="col-9">
                             <p>品名: {{ item.product.title }}</p>
                             <p>數量/單位:
@@ -137,7 +129,6 @@
                 </li>
             </ul>
             <ul>
-
                 <li v-if="couponOn">
                     <p colspan="4" class="text-end">折扣金額:{{ total - final_total }}</p>
                 </li>
@@ -146,8 +137,6 @@
                 </li>
                 <li v-else>
                 </li>
-
-
                 <li v-if="couponOn || allDiscount">
                     <p colspan="4" class="text-end text-success">最後金額: {{ final_total }}</p>
                 </li>
@@ -172,7 +161,7 @@ import { RouterLink } from 'vue-router';
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import Swal from 'sweetalert2';
 import { mapState, mapActions } from "pinia";
-import cartStore from '../../stores/cart';
+import cartStore from '@/stores/cart';
 
 export default {
 
