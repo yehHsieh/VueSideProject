@@ -2,7 +2,7 @@
     <div :style="{backgroundImage: `url(${bgImg})`, backgroundPosition: 'center'}" class="p-3">
         <div class="container p-3 "
             style="background:rgba(255, 255, 255, 0.6);backdrop-filter:blur(8px);border-radius:24px;">
-            <v-form @submit="addToOrder">
+            <VForm @submit="addToOrder">
                 <ul class="progresses m-0 d-flex">
                     <li>商品確認</li>
                     <li>訂購人資訊</li>
@@ -36,7 +36,7 @@
                     </RouterLink>
                     <button type="submit" class="btn btn-danger rounded-pill py-1 px-4 text-center">送出訂單</button>
                 </div>
-            </v-form>
+            </VForm>
         </div>
     </div>
 </template>

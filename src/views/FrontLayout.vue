@@ -12,7 +12,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           
+
 
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
@@ -25,7 +25,8 @@
                         </RouterLink>
                     </li>
                     <li class="nav-item  border-base py-lg-2">
-                        <RouterLink to="/AllProducts" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">雞尾酒專區
+                        <RouterLink to="/AllProducts" class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5">
+                            雞尾酒專區
                         </RouterLink>
                     </li>
                     <li class="nav-item  border-base py-lg-2">
@@ -33,7 +34,8 @@
                             class="nav-link py-3 mx-1 px-lg-3  list-group-item-hover fs-lg-5 position-relative fs-7">
 
 
-                            <span class="position-absolute top-10 start-lg-80 translate-middle badge rounded-pill bg-danger ">
+                            <span
+                                class="position-absolute top-10 start-lg-80 translate-middle badge rounded-pill bg-danger ">
                                 {{ cartNum }}
                                 <span class="visually-hidden">unread messages</span>
                             </span>
@@ -61,12 +63,14 @@
 
 
 
-    <RouterView/>
+
+    <RouterView />
 
     <footer class="footer bg-secondary py-2">
         <div class="container text-center d-lg-flex justify-content-between align-items-center">
             <RouterLink to="/">
-                <h2 class="m-lg-0 my-1"><img src="../assets/img/logo2.png" alt="logo" style="width: 100px; height: 50px;"></h2>
+                <h2 class="m-lg-0 my-1"><img src="../assets/img/logo2.png" alt="logo" style="width: 100px; height: 50px;">
+                </h2>
             </RouterLink>
             <p class="fs-12p fs-lg-14p m-0">©BREAD / all rights reserved.</p>
             <ul class="d-flex justify-content-center justify-content-lg-between m-0 p-0">
@@ -90,6 +94,7 @@
             </ul>
         </div>
     </footer>
+    {{ isNavFixed }}
 </template>
   
 <script>
@@ -99,6 +104,11 @@ import { mapActions, mapState } from "pinia";
 
 
 export default {
+    data() {
+        return {
+            isNavFixed: false
+        }
+    },
     computed: {
         ...mapState(cartStore, ['data', 'carts', 'total', 'final_total', 'cartNum']),
     },
@@ -107,10 +117,22 @@ export default {
         RouterLink,
     },
     methods: {
-        ...mapActions(cartStore, ['getCart'])
+        ...mapActions(cartStore, ['getCart']),
+        // getFix() {
+        //     this.isNavFixed = false
+        //     if (window.pageYOffset >= 100) {
+        //         // Add a CSS class to fix the navbar to the top of the screen
+        //         this.isNavFixed = true
+        //     } else {
+        //         // Remove the CSS class if the user scrolls back up
+        //         this.isNavFixed = false
+
+        //     }
+        // }
     },
     mounted() {
         this.getCart()
+        // this.getFix()
     }
 };
 </script>

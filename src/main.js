@@ -6,7 +6,7 @@ import router from './router'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import './assets/all.scss'
+import './assets/scss/all.scss'
 import "bootstrap/dist/js/bootstrap.bundle";
 
 import Loading from 'vue-loading-overlay';

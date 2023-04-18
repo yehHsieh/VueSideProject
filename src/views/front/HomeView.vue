@@ -213,7 +213,7 @@
 import bgImag from '@/assets/img/pexels-picjumbocom-225236.jpg';
 import imgHome from '@/assets/img/home.jpg';
 import imgBar from '@/assets/img/alexander-kovacs-spZexiKfZTs-unsplash.jpg';
-import { RouterLink } from 'vue-router';
+// import { RouterLink } from 'vue-router';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 // Import Swiper styles

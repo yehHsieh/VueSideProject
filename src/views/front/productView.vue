@@ -129,7 +129,7 @@ const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 import { mapState, mapActions } from "pinia";
 import cartStore from '@/stores/cart'
 import Swal from 'sweetalert2';
-import { RouterLink } from 'vue-router';
+// import { RouterLink } from 'vue-router';
 
 export default {
     props: false,

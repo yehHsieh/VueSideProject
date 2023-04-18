@@ -126,7 +126,7 @@
 <script >
 import { isObject } from '@vue/shared';
 import Swal from 'sweetalert2'
-import { RouterLink } from 'vue-router';
+// import { RouterLink } from 'vue-router';
 
 const { VITE_APP_URL, VITE_APP_PATH } = import.meta.env;
 
