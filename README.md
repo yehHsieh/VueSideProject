@@ -21,6 +21,9 @@
 
 (https://yehhsieh.github.io/VueSideProject/#/)
 
+## 使用技術、工具
+Vue 3 (Options API)、Axios 非同步遠端請求 API 、Vite、Pinia、 RWD、Bootstrap5 框架、 SCSS 樣式設計、VeeValidate 套件
+
 ## Project Setup
 
 ```sh
