@@ -1,5 +1,4 @@
 <template>
-  12
   <Loading :active="isLoading" :z-index="1060" />
   <div class="container">
     <div class="d-lg-flex justify-content-between my-5">
