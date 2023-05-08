@@ -94,7 +94,6 @@
             </ul>
         </div>
     </footer>
-    {{ isNavFixed }}
 </template>
   
 <script>
