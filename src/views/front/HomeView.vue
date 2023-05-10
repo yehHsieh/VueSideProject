@@ -1,4 +1,5 @@
 <template>
+  12
   <main>
     <div
       :style="{ backgroundImage: `url(${img})`, height: '100vh', width: '100%', backgroundPosition: 'center', backgroundSize: 'cover' }">
