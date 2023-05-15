@@ -9,7 +9,7 @@
         </div>
     </div>
     <table class="table mt-4">
-        <thead>
+        <thead> 
             <tr>
                 <th width="120">
                     分類
@@ -52,7 +52,7 @@
             </tr>
         </tbody>
     </table>
-    <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+    <Pagination :pages="paginations" @emit-pages="getProducts"></Pagination>
     <!-- Modal -->
     <product-modal @update-product="updateProduct" :product="tempProduct" :isNew="isNew" ref="productModal" />
     <!-- DelModal -->
@@ -71,7 +71,7 @@ export default {
             products: [],
             tempProduct: {},
             isNew: false,
-            pagination: {},
+            paginations: {},
             isLoading: false,
             currentPage: 1,
         }
@@ -88,7 +88,7 @@ export default {
             this.isLoading = true;
             this.$http.get(api).then((response) => {
                 this.products = response.data.products;
-                this.pagination = response.data.pagination;
+                this.paginations = response.data.pagination;
                 this.isLoading = false;
 
             }).catch((error) => {

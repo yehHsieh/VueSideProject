@@ -1,8 +1,8 @@
 
 <template>
-    <div class="container">
+    <div class="container" style="height: 100vh;">
         <div class="row justify-content-center text-center">
-            <h1 class="h3 mb-3 font-weight-normal">
+            <h1 class="h3 m-3 font-weight-normal">
                 請先登入
             </h1>
             <div class="col-4">

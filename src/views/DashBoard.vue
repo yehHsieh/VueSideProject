@@ -85,7 +85,7 @@ export default {
                     }
                 })
                 .catch((err) => {
-                    alert("帳密錯誤")
+                    alert("請先登入")
                     this.$router.push('/Login')
                 })
         },
