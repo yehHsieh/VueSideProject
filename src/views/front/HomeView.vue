@@ -173,7 +173,7 @@
         <div class="d-flex align-items-center justify-content-center flex-column">
           <video width="520" height="340" ref="myVideo" class=""
             data-setup='{ "autoplay": true, "controls": true, "poster": "", "preload": "auto" }'>
-            <source src="../../assets/img/guitarist-1651.mp4" type="video/mp4">
+            <source src="../../assets/img/guitarist-1651.mp4" type="video/mp4" style="width: 520; height: 340;">
           </video>
           <div class="mt-3">
             <button @click="play()" class="btn btn-outline-primary me-2">Play</button>
