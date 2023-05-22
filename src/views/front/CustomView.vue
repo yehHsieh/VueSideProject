@@ -24,11 +24,11 @@
     <h3 class="my-3">步驟二: 選酒精度數</h3>
     <ul class="row mt-3 mb-5 p-0">
       <li class="col-lg-2 col-md-4 text-center my-1"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
-          @click.prevent="getAlcProducts('20')">&lt 20度</a></li>
+          @click.prevent="getAlcProducts('20')" v-bind:class="{ active: isActive4 }">&lt 20度</a></li>
       <li class="col-lg-2 col-md-4 text-center my-1"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
-          @click.prevent="getAlcProducts('30')">20度~40度</a></li>
+          @click.prevent="getAlcProducts('30')" v-bind:class="{ active: isActive5 }">20度~40度</a></li>
       <li class="col-lg-2 col-md-4 text-center my-1"><a href="" class="btn btn-outline-alc d-block rounded-pill py-3"
-          @click.prevent="getAlcProducts('40')">&gt 40度</a></li>
+          @click.prevent="getAlcProducts('40')" v-bind:class="{ active: isActive6 }">&gt 40度</a></li>
     </ul>
     <ul class="row my-5 p-0" v-if="tempProducts.length > 0 && showNum">
       <li v-for="product in tempProducts" :key="product.id"
@@ -132,7 +132,10 @@ export default {
       //按鈕判斷持續被啟動 
       isActive1: false,
       isActive2: false,
-      isActive3: false
+      isActive3: false,
+      isActive4: false,
+      isActive5: false,
+      isActive6: false
     }
   },
   computed: {
@@ -175,6 +178,9 @@ export default {
       this.isLoading = true;
       this.tempAlc = alc
       this.finalProducts = []
+      this.isActive4 = false
+      this.isActive5 = false
+      this.isActive6 = false
       if (this.tempProducts.length == 0) {
         Swal.fire({
           icon: 'error',
@@ -184,16 +190,15 @@ export default {
       this.tempProducts.forEach(i => {
         if (this.tempAlc == '20' && i.alc < 20) {
           this.finalProducts.push(i);
-          console.log(i)
-          console.log(this.finalProducts)
-          console.log(this.finalProducts.length)
+          this.isActive4 = true
         }
         if (this.tempAlc == '30' && i.alc >= 20 && i.alc < 40) {
           this.finalProducts.push(i);
-
+          this.isActive5 = true
         }
         if (this.tempAlc == '40' && i.alc >= 40) {
           this.finalProducts.push(i);
+          this.isActive6 = true
         }
         if (this.finalProducts.length == 0) {
           this.showNum = false

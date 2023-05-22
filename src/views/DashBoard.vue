@@ -1,21 +1,6 @@
 <template>
     <div class="bg-secondary">
         <nav class="navbar navbar-expand-lg py-0 sticky-top d-flex justify-content-between container">
-            <div class="py-3 py-lg-4 d-flex align-items-center">
-
-                <input class="menu-check" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-                    type="checkbox" id="menu-check" />
-                <label class="menu-open-button d-inline" for="menu-check">
-                    <div class="ham">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </label>
-            </div>
-
-
 
             <!-- 下拉選單 -->
             <div class="collapse navbar-collapse border-0 justify-content-end" id="navbarSupportedContent">

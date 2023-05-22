@@ -3,7 +3,7 @@
     <Loading :active="isLoading" :z-index="1060"></Loading>
     <table class="table mt-4">
         <thead>
-            <tr>
+            <tr>  
                 <th>購買時間</th>
                 <th>Email</th>
                 <th>購買款項</th>
@@ -14,7 +14,7 @@
         </thead>
         <tbody>
             <template v-for="(item, key) in orders" :key="key">
-                <tr v-if="orders.length" :class="{ 'text-secondary': !item.is_paid }">
+                <tr v-if="orders.length" :class="{ 'text-danger': !item.is_paid }">
                     <!-- <td>{{ $filters.date(item.create_at) }}</td> -->
                     <!-- <td>{{ item.created_at | formatDate }}</td> -->
                     <td></td>
